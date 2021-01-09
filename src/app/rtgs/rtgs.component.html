@@ -1,0 +1,40 @@
+<div class='container'>
+    <h4>Please enter the Credentials</h4>
+    <form #deptForm='ngForm' (ngSubmit)='savebeni(trans)'>
+        
+        <table>
+            <tr>
+            <td><label for="From_Account_Number">Account number:</label></td>
+            <td><input type='text' class='form-control' id='From_Account_Number' name='From_Account_Number' 
+             value="{{tempid}}" /></td>
+            </tr>
+            <tr>
+            <td><label for="To_Account_Number">To Account number:</label></td>
+            <td>><input type='text' class='form-control' id='To_Account_Number' name='To_Account_Number'
+             required [(ngModel)]='trans.To_Account_Number' /></td>
+            </tr>
+            <tr>
+            <td><label for="Amount">Amount:</label></td>
+            <td><input type='text' class='form-control' id='Amount' name='Amount' required
+             [(ngModel)]='trans.Amount' /></td>
+            </tr>
+            <tr>
+           <td> <label for="Maturity_Instructions">Maturity Instructions:</label></td>
+            <td><input type='text' class='form-control' id='Maturity_Instructions' name='Maturity_Instructions' required
+             [(ngModel)]='trans.Maturity_Instructions' /></td>
+            </tr>
+            <tr>
+            <td><label for="Remark">Remark:</label></td>
+           <td><input type='text' class='form-control' id='Remark' name='Remark'
+             [(ngModel)]='trans.Remark' /><td>
+            </tr>
+            </table>
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' >Save</button>
+            <button type="reset">Reset</button>
+        </div>
+
+    </form>
+</div>
+

@@ -1,0 +1,44 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">Register For Internet Banking</h1>
+</div>
+<form #form="ngForm" autocomplete="off"  (submit)="saveRegister(data)">
+    <div class="form-group">
+
+    <div class="form-group">
+        <label>Account Number</label>
+        <input type="number" name="Account_Number" #Account_Number="ngModel" [(ngModel)]="data.Account_Number" class="form-control" required>
+        <div class="validation-error" style="color:red" *ngIf="Account_Number.invalid && Account_Number.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Set Login Password</label>
+        <input type="password" name="Login_Password" #Login_Password="ngModel" [(ngModel)]="data.Login_Password" class="form-control" required>
+        <div class="validation-error" style="color:red" *ngIf="Login_Password.invalid && Login_Password.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Confirm Login Password</label>
+        <input type="password" name="Confirm_Login_Password" #Confirm_Login_Password="ngModel" [(ngModel)]="data.Confirm_Login_Password" class="form-control" pattern="{{ Login_Password.value }}" required>
+        <div *ngIf="Confirm_Login_Password.invalid && (Confirm_Login_Password.touched)" style="color:red" class="validation-error"> Password & Confirm Password does not match.</div>
+    </div>
+
+    <div class="form-group">
+        <label>Set Transaction Password</label>
+        <input type="password" name="Transaction_Password" #Transaction_Password="ngModel" [(ngModel)]="data.Transaction_Password" class="form-control" required>
+        <div class="validation-error" style="color:red" *ngIf="Transaction_Password.invalid && Transaction_Password.touched">This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Confirm Transaction Password</label>
+        <input type="password" name="Confirm_Transaction_Password" #Confirm_Transaction_Password="ngModel" [(ngModel)]="data.Confirm_Transaction_Password" class="form-control" pattern="{{ Transaction_Password.value }}" required>
+        <div *ngIf="Confirm_Transaction_Password.invalid && (Confirm_Transaction_Password.touched)" style="color:red" class="validation-error"> Transaction Password & Transaction Confirm Password does not match.</div>
+    </div>
+
+    <div class="form-group">
+        <label>Otp*</label>
+        <input type="number" name="Otp" #Otp="ngModel" [(ngModel)]="data.Otp" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    </div>
+</div>
+</form>

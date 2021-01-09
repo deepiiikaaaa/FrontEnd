@@ -1,0 +1,26 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">Forgot User ID</h1>
+    <h3>Enter Details</h3>
+</div>
+
+<form #form="ngForm"  autocomplete="off"  >
+    <div class="form-group">
+
+    <div class="form-group">
+        <label>Account Number</label>
+        <input type="number" name="Account_Number"   (input)="accountnum($event)" class="form-control" required>
+        <!-- <div class="validation-error" style="color:red" *ngIf="Account_Number.invalid && Account_Number.touched">This field is required</div> -->
+    </div>
+
+    <div class="form-group">
+        <label>Otp*</label>
+        <input type="number" name="Otp"  (input)="Otp($event)" required class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" (click)="custid()" class="btn btn-lg btn-block">Submit</button>
+    </div>
+</div>
+</form>
+<!-- <div style="color:green">{{data.Customer_Id}}</div> -->
+<div style="color:red">{{errormessage}}</div>

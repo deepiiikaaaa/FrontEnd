@@ -1,0 +1,145 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">Open A Savings Account</h1>
+    <h3>Personal Details</h3>
+</div>
+<form #form="ngForm" (ngSubmit)='saveDetails(details)' autocomplete="off">
+    <div class="form-group">
+        <label>Title*</label>
+        <input type="text" name="Title" #Title="ngModel" [(ngModel)]="details.Title" class="form-control" readonly>
+        <!-- <select name="Title" #Title="ngModel" [(ngModel)]="details.Title" class="form-control" readonly>
+            <option *ngFor="let data of title">{{data}}</option>
+        </select>   -->
+        
+    </div>
+    <div class="form-group">
+        <label>First Name*</label>
+        <input type="text" name="First_Name" #First_Name="ngModel" [(ngModel)]="details.First_Name" class="form-control" readonly>
+        <div class="validation-error" style="color:red" *ngIf="First_Name.invalid && First_Name.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Middle Name</label>
+        <input type="text" name="Middle_Name" #Middle_Name ="ngModel" [(ngModel)]="details.Middle_Name" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Last Name*</label>
+        <input type="text" name="Last_Name" #Last_Name="ngModel" [(ngModel)]="details.Last_Name" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Father Name*</label>
+        <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Mobile Number*</label>
+        <input type="number" name="Mobile_Number" #Mobile_Number="ngModel" [(ngModel)]="details.Mobile_Number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Email Id *</label>
+        <input type="text" name="Email_Id" #Email_Id ="ngModel" [(ngModel)]="details.Email_Id " class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Aadhar Number*</label>
+        <input type="number" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth*</label>
+        <input type="text" name="Date_of_Birth" #Date_of_Birth="ngModel" [(ngModel)]="details.Date_of_Birth" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Address Line1 *</label>
+        <input type="text" name="Address_Line1" #Address_Line1 ="ngModel"  [(ngModel)]="details.Address_Line1 " class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Address Line2 *</label>
+        <input type="text" name="Address_Line2" #Address_Line2="ngModel" [(ngModel)]="details.Address_Line2" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Lankmark</label>
+        <input type="text" name="Lankmark" #Lankmark="ngModel" [(ngModel)]="details.Lankmark" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>State*</label>
+        <input type="text" name="State" #State="ngModel" [(ngModel)]="details.State" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>City*</label>
+        <input type="text" name="City" #City="ngModel" [(ngModel)]="details.City" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Pincode*</label>
+        <input type="number" name="Pincode" #Pincode="ngModel" [(ngModel)]="details.Pincode" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Permanent Address</label><br/>
+        <input type="checkbox" name="isChecked"  value="" class="" [(ngModel)]="isChecked" (change)="checkValue(form)" >
+        <label>Permanent Address same as Mailing Address</label>
+    </div>
+    <div class="form-group">
+        <label>Address Line1 *</label>
+        <input type="text" name="PermanentAddress_Line1"  #PermanentAddress_Line1 ="ngModel"  [(ngModel)]="details.PermanentAddress_Line1"  class="form-control" value="isChecked">
+    </div>
+
+    <div class="form-group">
+        <label>Address Line2 *</label>
+        <input type="text" name="PermanentAddress_Line2" #PermanentAddress_Line2="ngModel" [(ngModel)]="details.PermanentAddress_Line2" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Lankmark</label>
+        <input type="text" name="PermanentLankmark" #PermanentLankmark="ngModel" [(ngModel)]="details.PermanentLankmark" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>State*</label>
+        <input type="text" name="PermanentState" #PermanentState="ngModel" [(ngModel)]="details.PermanentState" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>City*</label>
+        <input type="text" name="PermanentCity" #PermanentCity="ngModel" [(ngModel)]="details.PermanentCity" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Pincode*</label>
+        <input type="number" name="PermanentPincode" #PermanentPincode="ngModel" [(ngModel)]="details.PermanentPincode" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Occupation type*</label>
+        <input type="text" name="Occupation_type" #Occupation_type="ngModel" [(ngModel)]="details.Occupation_type" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Source of Income*</label>
+        <input type="text" name="Source_of_Income" #Source_of_Income="ngModel" [(ngModel)]="details.Source_of_Income" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Gross Annual Income*</label>
+        <input type="number" name="Gross_Annual_Income" #Gross_Annual_Income="ngModel" [(ngModel)]="details.Gross_Annual_Income" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Debit_Card</label><br/>
+        <label>Do you want a debit card?*</label>
+        <input name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card" readonly class="form-control">
+        <!-- <select name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card" readonly>
+            <option *ngFor="let data3 of debitcard">{{data3}}</option>
+        </select> -->
+    </div>
+    <div class="form-controlName">
+        <label>Netbanking*</label>
+        <input name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" readonly class="form-control">
+        <!-- <select name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" class="form-control" readonly>
+            <option *ngFor="let data1 of netbanking">{{data1}}</option>
+        </select> -->
+    </div>
+    <div class="form-group">
+        <label>Account type*</label>
+        <input name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" readonly class="form-control">
+        <!-- <select name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" class="form-control" readonly>
+            <option *ngFor="let data2 of accounttype">{{data2}}</option>
+        </select> -->
+    </div>
+
+        
+    
+    
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Save</button>
+    </div>
+</form>
