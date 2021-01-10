@@ -2,6 +2,16 @@
 <p class="btn-success">
 Acc no : {{ user.Account_Number }}
     Name : {{user.Customername | uppercase}} </p>
+
+    <h3> Subscribe for netbanking to access Transaction and Beneficiary management</h3>
+<div *ngIf='isTrue'>
+  <a [routerLink] = "['/beni']" >Benificiary List</a> ||
+  <a [routerLink] = "['/beniadd']" >Add new Benificiary</a> || 
+  <a [routerLink] = "['/transpage']">New Transaction</a> ||
+  <a [routerLink] = "['/translis']">Transaction Summary</a> ||
+  <a [routerLink] = "['/datesummary']">Transaction Statement</a>
+</div>
+
 <table style="border:2px solid black;margin-left:auto">
     <tr>
       <th>Select Banking Facility</th>

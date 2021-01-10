@@ -40,7 +40,8 @@ export class BeniaddComponent implements OnInit {
       ()=> {
           alert("record added");
           this.router.navigate(['/beni']);
-    }
+    },error => { 
+      alert(error.error.Message);}
     );
   }
 

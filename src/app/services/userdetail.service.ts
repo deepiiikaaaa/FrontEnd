@@ -17,6 +17,9 @@ export class UserdetailService {
   }
   constructor(private http:HttpClient) { }
 
+  getusernet(id:number):Observable<string>{
+    return this.http.get<string>(this.url+"/GetFetch/"+id);
+  }
   
   getUserList():Observable<any[]>{
     return this.http.get<any[]>(this.url+"/getDetails");

@@ -6,7 +6,7 @@ import {IAdmin} from './../models/IAdmin';
   providedIn: 'root'
 })
 export class AdminServiceService {
-  url="http://localhost/banking/api/admin/";
+  url="http://localhost/bankingg/api/admin/";
   httpOptions={
   headers:new HttpHeaders({'Content-Type':'application/json'})
   };

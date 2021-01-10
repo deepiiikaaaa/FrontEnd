@@ -16,7 +16,8 @@ export class LoginServiceService {
   constructor(private http:HttpClient) { }
 
   login(log:ILog):Observable<ILog>{
-    return this.http.post<ILog>(this.url+"PostLogin",log,this.httpOptions);
- }
- 
-}
+    return this.http.post<ILog>(this.url+"PostLogin",log,this.httpOptions); }
+
+    lock(log:ILog):Observable<ILog>{
+      return this.http.post<ILog>(this.url+"PostLocked",log,this.httpOptions);}
+    }

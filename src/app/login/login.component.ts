@@ -12,6 +12,7 @@ import { ILog } from '../models/ILogin';
 export class LoginComponent implements OnInit {
   model : ILog = { CustomerID : null, Password : null};    
   num : string;
+  count:number = 0;
   constructor(private router:Router,private LoginService:LoginServiceService) { }
 
   login(){
@@ -21,10 +22,21 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       }, error => { 
         alert(error.error.Message);
+        this.count++;
+        if(this.count == 3){
+          this.lock();
       }
+    }
     );
   }
-
+  lock(){
+    this.LoginService.lock(this.model).subscribe(
+      () => {
+        alert(this.model.CustomerID+"has been locked try forget password");
+        this.router.navigate(['/login']);
+      }
+      )
+  }
   saveLogin(model:ILog){
     this.model=model;
     this.num=model.CustomerID.toString();
