@@ -1,0 +1,17 @@
+<div class="container">
+    <h4>Admin Credentials:</h4>
+    <form #adminForm='ngForm' (ngSubmit)='saveAdmin(admindeets)'>
+        <div class="form-group">
+            <label for='Admin_Id'>Admin Id:</label>
+            <input type="text" class="form-control" id='Admin_Id' name="Admin_Id" [(ngModel)]='admindeets.Admin_Id' />
+        </div>
+        <div class="form-group">
+            <label for='Password'>Admin Password:</label>
+            <input type="password" class="form-control" id='Password' name="Password" [(ngModel)]='admindeets.Password' />
+        </div>
+        <div>
+            <button type="submit" [disabled]='adminForm.invalid'>Save</button>
+        </div>
+    </form>
+    </div>
+

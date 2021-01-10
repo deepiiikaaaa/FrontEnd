@@ -10,7 +10,7 @@ import { Iuserdetail } from '../models/Iuserdetail';
 export class UserdetailService {
 
   
-  url="http://localhost/banking/api/userdetail";
+  url="http://localhost/bankingg/api/userdetail";
   //url="http://localhost:62477/api/userdetail"
   httpOptions={
     headers:new HttpHeaders({'Content-Type':'application/json'})

@@ -1,0 +1,24 @@
+<p>DASHBOARD</p>
+<p class="btn-success">
+Acc no : {{ user.Account_Number }}
+    Name : {{user.Customername | uppercase}} </p>
+<table style="border:2px solid black;margin-left:auto">
+    <tr>
+      <th>Select Banking Facility</th>
+    </tr>
+    <tr>
+      <th><a [routerLink] = "['/beniadd']" >Add new Benificiary</a></th>
+    </tr>
+    <tr>
+      <th><a [routerLink] = "['/beni']" >Benificiary List</a></th>
+    </tr>
+    <tr>
+      <th><a [routerLink] = "['/transpage']">New Transaction</a></th>
+    </tr>
+    <tr>
+      <th><a [routerLink] = "['/translis']">Transaction Summary</a></th>
+    </tr>
+    <tr>
+        <th><a [routerLink] = "['/datesummary']">Transaction Statement</a></th>
+      </tr>
+  </table>

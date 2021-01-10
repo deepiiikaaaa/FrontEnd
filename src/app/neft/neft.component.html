@@ -1,0 +1,43 @@
+<div class='container'>
+    <h4>Please enter the Credentials</h4>
+    
+    <form #deptForm='ngForm' (ngSubmit)='savebeni(trans)'>
+       <table>
+       <tr>
+           <td> <label for="From_Account_Number">Account number:</label></td>
+           <td> <input type='text' class='form-control' id='From_Account_Number' name='From_Account_Number' 
+             value="{{tempid}}" /></td>
+            </tr>
+        <tr>
+          <td><label for="To_Account_Number">To Account number:</label></td>  
+           <td> 
+            <select name ="To_Account_Number" #Title="ngModel" [(ngModel)]='trans.To_Account_Number' 
+            class='form-control' required>
+                <option *ngFor="let data of benili">{{data.Beneficiary_Account_Number}}</option>
+            </select>
+           </td>
+           <td>
+            <a [routerLink] = "['/beniadd']" >Add new Benificiary</a>
+           </td>
+            </tr>
+        <tr>
+           <td> <label for="Amount">Amount:</label></td>
+           <td> <input type='text' class='form-control' id='Amount' name='Amount' required
+             [(ngModel)]='trans.Amount' /></td>
+            </tr>
+            <tr>
+            <td><label for="Remark">Remark:</label></td>
+            <td><input type='text' class='form-control' id='Remark' name='Remark'
+             [(ngModel)]='trans.Remark' /></td>
+</tr>
+
+            </table> 
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+
+    </form>
+</div>
+

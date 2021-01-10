@@ -1,0 +1,21 @@
+<div class='container'>
+    <h4>Please enter the Credentials</h4>
+    <form #deptForm='ngForm' (ngSubmit)='saveLogin(model)'>
+        <div>
+            <label for="CustomerID">Enter LoginID:</label>
+            <input type='text' class='form-control' id='CustomerID' name='CustomerID' required
+             [(ngModel)]='model.CustomerID' />
+        </div>
+
+        <div>
+            <label for="Password">Enter Password:</label>
+            <input type='password' class='form-control' id='Password' name='Password' required
+             [(ngModel)]='model.Password' />
+        </div>
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' >Save</button>
+        </div>
+
+    </form>
+</div>

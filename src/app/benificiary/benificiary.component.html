@@ -1,0 +1,23 @@
+<div class='container'>
+    <H4 class='btn-danger'>Benificiary Listing</H4>
+    Acc no : {{ user.Account_Number }}
+    Name : {{user.Customername | uppercase}}
+    Cust ID : {{ user.Customer_Id}}
+<div class='jumbotron'>
+
+  <div>
+      <a [routerLink] = "['/beniadd']" >Add new Benificiary</a>
+  </div>
+<table class="table table-sm table-hover">
+  <tr class='btn-success'>
+      <th>Account Number</th>
+      <th>Name</th>
+      <th>Nick Name</th>
+    </tr>
+      <tr *ngFor="let dept of benili">
+        <td>{{ dept.Beneficiary_Account_Number }}</td>
+        <td>{{dept.Beneficiary_Name | uppercase}}</td>
+        <td>{{ dept.Nick_Name}}</td></tr>
+      </table>
+    </div>
+</div>

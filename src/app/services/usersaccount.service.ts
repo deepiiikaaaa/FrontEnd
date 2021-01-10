@@ -8,7 +8,7 @@ import { Iusersaccount } from '../models/Iusersaccount';
 })
 export class UsersaccountService {
 
-  url="http://localhost/banking/api/usersaccount";
+  url="http://localhost/bankingg/api/usersaccount";
   httpOptions={
     headers:new HttpHeaders({'Content-Type':'application/json'})
   }

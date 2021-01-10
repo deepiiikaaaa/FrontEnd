@@ -1,0 +1,32 @@
+<div class='container'>
+    <h4>Please enter the Credentials</h4>
+    <form #deptForm='ngForm' (ngSubmit)='savebeni(beni)'>
+
+        <div>
+            <label for="Beneficiary_Name">Enter Name:</label>
+            <input type='text' class='form-control' id='Beneficiary_Name' name='Beneficiary_Name' required
+             [(ngModel)]='beni.Beneficiary_Name' />
+        </div>
+        <div>
+            <label for="Beneficiary_Account_Number">Enter Account number:</label>
+            <input type='text' class='form-control' id='Beneficiary_Account_Number' name='Beneficiary_Account_Number'
+             required [(ngModel)]='beni.Beneficiary_Account_Number' />
+        </div>
+        <div>
+            <label for="Nick_Name">Enter Nick name:</label>
+            <input type='text' class='form-control' id='Nick_Name' name='Nick_Name' required
+             [(ngModel)]='beni.Nick_Name' />
+        </div>
+        <div>
+            <label for="Save_Status">Save</label>
+            <input type='checkbox' class='form-control' id='Save_Status' name='Save_Status' required
+             [(ngModel)]='isChecked' (change)="checkValue(deptForm)" />
+        </div>
+
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+        </div>
+
+    </form>
+</div>

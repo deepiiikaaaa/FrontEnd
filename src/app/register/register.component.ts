@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   constructor(private registerservice:UsersaccountService,private router:Router,private route:ActivatedRoute) { }
 
   registerDetail(){
-    this.registerservice.registerdetail(this.data).subscribe(()=>{alert("Record Edited");this.router.navigate(['/login']);});
+    this.registerservice.registerdetail(this.data).subscribe(abc=>{alert("Record Edited");this.router.navigate(['/login']);});
   }
 
   saveRegister(data:Iusersaccount){

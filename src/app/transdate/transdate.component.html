@@ -1,0 +1,43 @@
+<p> trans date works</p>
+
+<div class='container'>
+    <h4>Please enter the Credentials</h4>
+    <form #deptForm='ngForm' (ngSubmit)='save()'>
+        
+        <div>
+            <label for="start">start:</label>
+            <input type='date' class='form-control' id='start' name='start' [(ngModel)]='start' />
+        </div>
+        <div>
+            <label for="finish">finish:</label>
+            <input type='date' class='form-control' id='finish' name='finish'[(ngModel)]='finish' />
+        </div>
+
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+        </div>
+
+    </form>
+</div>
+    <div *ngIf='isTrue'>
+        <table class="table table-sm table-hover">
+            <tr class='btn-success'>
+                <th>Transaction Id</th>
+                <th>From Account Number</th>
+                <th>To Account Number</th>
+                <th>Amount</th>
+                <th>Mode</th>
+                <th>Remark</th>
+                <th>Transaction Date</th>
+              </tr>
+                <tr *ngFor="let dept of transli">
+                  <td>{{ dept.Transaction_Id }}</td>
+                  <td>{{ dept.From_Account_Number }}</td>
+                  <td>{{ dept.To_Account_Number }}</td>
+                  <td>{{ dept.Amount }}</td>
+                  <td>{{dept.Mode}}</td>
+                  <td>{{dept.Remark}}</td>
+                  <td>{{ dept.Transaction_Date | date}}</td></tr>
+                </table>
+    </div>

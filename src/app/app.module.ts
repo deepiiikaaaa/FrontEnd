@@ -17,6 +17,19 @@ import { HomeComponent } from './home/home.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
+import { TransdateComponent } from './transdate/transdate.component';
+import { TranslisComponent } from './translis/translis.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { BeniaddComponent } from './beniadd/beniadd.component';
+import { BenificiaryComponent } from './benificiary/benificiary.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { TransdashComponent } from './transdash/transdash.component';
+import { RtgsComponent } from './rtgs/rtgs.component';
+import { ImpsComponent } from './imps/imps.component';
+import { NeftComponent } from './neft/neft.component';
+import { SuccessComponent } from './success/success.component';
 
 
 @NgModule({
@@ -33,6 +46,19 @@ import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.compone
     ForgotuseridComponent,
     ForgotpasswordComponent,
     SetnewpasswordComponent,
+    TransdateComponent,
+    TranslisComponent,
+    LoginComponent,
+    LogoutComponent,
+    BeniaddComponent,
+    BenificiaryComponent,
+    DashboardComponent,
+    AdminloginComponent,
+    TransdashComponent,
+    RtgsComponent,
+    ImpsComponent,
+    NeftComponent,
+    SuccessComponent,
     
   ],
   imports: [
