@@ -11,6 +11,7 @@ import {IAdmin} from './../models/IAdmin';
 export class AdminloginComponent implements OnInit {
   admindeets:IAdmin={Admin_Id:null,Password:null};
   num:string="";
+  sessionval="";
     constructor(private adminservice:AdminServiceService,private router:Router) { }
   validate(){
     this.adminservice.validate(this.admindeets).subscribe(
@@ -31,6 +32,14 @@ export class AdminloginComponent implements OnInit {
  
 
   ngOnInit(): void {
+    this.sessionval= localStorage.getItem("adId");
+    
+    if(this.sessionval!=null)
+    {
+      alert("Already Logged In");
+      this.router.navigate(['/adminlogout']);
+    }
   }
+  
 
 }

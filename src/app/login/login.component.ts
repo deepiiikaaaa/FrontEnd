@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   model : ILog = { CustomerID : null, Password : null};    
   num : string;
   attemp:number=null;
-  
+  sessionval:string=null;
   constructor(private router:Router,private LoginService:LoginServiceService) { }
 
   login(){
@@ -68,6 +68,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sessionval= localStorage.getItem("cusid");
+    
+    if(this.sessionval!=null)
+    {
+      alert("Already Logged In");
+      this.router.navigate(['/logout']);
+    }
   }
 
 }
