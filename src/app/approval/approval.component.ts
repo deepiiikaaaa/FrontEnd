@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Iuserdetail } from '../models/Iuserdetail';
 import { UserdetailService } from '../services/userdetail.service';
 
@@ -41,12 +42,20 @@ export class ApprovalComponent implements OnInit {
 // };
 
 approval:any[];
+sessionval:string ="";
 
-  constructor(private userservice:UserdetailService) {
+  constructor(private userservice:UserdetailService,private router:Router) {
   this.userservice.getUserList().subscribe((data)=>{this.approval=data;})
 }
 
   ngOnInit(): void {
+    this.sessionval= localStorage.getItem("adId");
+    
+    if(this.sessionval==null)
+    {
+      alert("session expired"+localStorage.getItem("adminlogouttime"));
+      this.router.navigate(['/admin']);
+    }
   }
 
 }

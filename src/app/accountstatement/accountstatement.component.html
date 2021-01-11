@@ -1,0 +1,13 @@
+<table class="table table-sm table-hover">
+    <tr class='btn-success'>
+        <th>Account Number</th>
+        <th>Name</th>
+        <th>Account Type</th>
+        <th>Balance</th>
+      </tr>
+        <tr *ngFor="let x of statement">
+          <td>{{ x.Account_Number }}</td>
+          <td>{{ x.Customername}}</td>
+          <td>{{ x.Account_type }}</td>
+          <td>{{ x.Balance }}</td>
+        </table>

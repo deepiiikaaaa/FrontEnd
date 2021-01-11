@@ -25,7 +25,7 @@ export class AdminloginComponent implements OnInit {
   saveAdmin(admindeets:IAdmin):void{
     this.admindeets=admindeets;
     this.num=admindeets.Admin_Id.toString();
-    sessionStorage.setItem("adId",this.num);
+    localStorage.setItem("adId",this.num);
     this.validate();
   }
  

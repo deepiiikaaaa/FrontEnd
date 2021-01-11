@@ -15,6 +15,7 @@ export class RtgsComponent implements OnInit {
   trans:ITrans={ Transaction_Id:null, From_Account_Number:null, Amount:null, To_Account_Number:null, 
     Mode: null, Maturity_Instructions:null, Remark:null, Transaction_Date:null};
     benili:IBeni[];
+
   user:IUser;
   sessionval:string ="";
   id:number ;
@@ -59,7 +60,7 @@ export class RtgsComponent implements OnInit {
     this.id = parseInt(this.sessionval);
     if(this.sessionval==null)
     {
-      alert("session expired");
+      alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
     this.getuser();

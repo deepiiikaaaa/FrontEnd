@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
 import{Observable,of} from 'rxjs';
 import { Iusersaccount } from '../models/Iusersaccount';
+import { Iaccountstatement } from '../models/Iaccountstatement';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,9 @@ export class UsersaccountService {
 
   changenewpassword(data:Iusersaccount,Customer_Id:number):Observable<Iusersaccount>{
     return this.http.put<Iusersaccount>(this.url+'/PutChangePassword/'+Customer_Id,data,this.httpOptions)
+  }
+
+  getstatement(id:number):Observable<Iaccountstatement>{
+  return this.http.get<Iaccountstatement>(this.url+"/Getstatement/"+id);
   }
 }

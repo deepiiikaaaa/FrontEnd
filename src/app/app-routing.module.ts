@@ -26,6 +26,8 @@ import { FundtrasferComponent } from './fundtrasfer/fundtrasfer.component';
 import { TransdashComponent } from './transdash/transdash.component';
 import { BenidashComponent } from './benidash/benidash.component';
 import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
+import { AccountstatementComponent } from './accountstatement/accountstatement.component';
+import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
 
 const routes: Routes = [
   {path:"openaccount",component:UserdetailComponent},
@@ -41,6 +43,7 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'Fundtransfer',component:FundtrasferComponent},
   {path:'admin',component:AdminloginComponent},
+  {path:'adminlogout',component:AdminlogoutComponent},
   {path:'rtgs',component:RtgsComponent},
   {path:'imps',component:ImpsComponent},
   {path:'neft',component:NeftComponent},
@@ -48,12 +51,13 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'beni',component:BenificiaryComponent},
   {path:'beniadd',component:BeniaddComponent},
-  {path:'Accountsummary',component:TranslisComponent},
+  {path:'Transactionsummary',component:TranslisComponent},
   {path:'logout',component:LogoutComponent},
-  {path:'Accountstatement',component:TransdateComponent},
+  {path:'Transactionstatement',component:TransdateComponent},
   {path:'transdash',component:TransdashComponent},
   {path:'benidash',component:BenidashComponent},
   {path:'changepassword',component:ChangepasswordsComponent},
+  {path:'Accountstatement',component:AccountstatementComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

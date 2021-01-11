@@ -40,7 +40,7 @@ export class BenificiaryComponent implements OnInit {
     this.id = parseInt(this.sessionval);
     if(this.sessionval==null)
     {
-      alert("session expired");
+      alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
 

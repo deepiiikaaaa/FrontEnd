@@ -12,23 +12,43 @@ import { ILog } from '../models/ILogin';
 export class LoginComponent implements OnInit {
   model : ILog = { CustomerID : null, Password : null};    
   num : string;
-  count:number = 0;
+  attemp:number=null;
+  
   constructor(private router:Router,private LoginService:LoginServiceService) { }
 
   login(){
     this.LoginService.login(this.model).subscribe(
       () => {
         alert(this.model.CustomerID+" has logged in");
+        this.updateAttempt();
         this.router.navigate(['/dashboard']);
       }, error => { 
         alert(error.error.Message);
-        this.count++;
-        if(this.count == 3){
-          this.lock();
-      }
+          this.decAttemp();
     }
     );
   }
+
+  updateAttempt(){
+    this.LoginService.updateattempt(this.model.CustomerID).subscribe(()=>{},
+    error=>{
+      alert(error.error.Message);
+    }
+      );
+    }
+    
+  
+
+  decAttemp(){
+    this.LoginService.decAttemp(this.model.CustomerID).subscribe((data)=>{this.attemp=data;alert("you have"+this.attemp+"attempts before account locks")},
+    error=>{
+      alert(error.error.Message);
+
+      this.lock();
+    }
+    );
+  }
+
   lock(){
     this.LoginService.lock(this.model).subscribe(
       () => {
@@ -36,7 +56,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/login']);
       }
       )
+      
   }
+
+
   saveLogin(model:ILog){
     this.model=model;
     this.num=model.CustomerID.toString();

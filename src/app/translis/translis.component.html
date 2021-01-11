@@ -1,28 +1,39 @@
 <div class='container'>
-    <H4 class='btn-danger'>Transaction List</H4>
-    Acc no : {{ user.Account_Number }}
-    Name : {{user.Customername | uppercase}}
-    Cust ID : {{ user.Customer_Id}}
+  <H4 class='btn-danger'>Transaction List</H4>
+  Acc no : {{ user.Account_Number }}
+  Name : {{user.Customername | uppercase}}
+  Cust ID : {{ user.Customer_Id}}
 <div class='jumbotron'>
 
 <table class="table table-sm table-hover">
-  <tr class='btn-success'>
-      <th>Transaction Id</th>
-      <th>From Account Number</th>
-      <th>To Account Number</th>
-      <th>Amount</th>
-      <th>Mode</th>
-      <th>Remark</th>
-      <th>Transaction Date</th>
+<tr class='btn-success'>
+    <th>Transaction Id</th>
+    <th>From Account Number</th>
+    <th>To Account Number</th>
+    <th> Benificiary Name</th>
+    <th>Amount</th>
+    <th>Mode</th>
+    <th>Remark</th>
+    <th>Transaction Date</th>
+    <th>Closing Balance</th>
+  </tr>
+    <tr *ngFor="let dept of transli; let i = index">
+      <div *ngIf='back()'></div>
+      <td>{{ dept.Transaction_Id }}</td>
+      <td>{{ dept.From_Account_Number }}</td>
+      <td>{{ dept.To_Account_Number }}</td>
+      <ng-container *ngFor="let beni of benili">
+      <ng-container *ngIf='check(beni.Beneficiary_Account_Number,dept.To_Account_Number)'>
+      <td> {{beni.Beneficiary_Name}}</td>
+      </ng-container>
+
+    </ng-container>
+      <td>{{ dept.Amount }}</td>
+      <td>{{dept.Mode}}</td>
+      <td>{{dept.Remark}}</td>
+      <td>{{ dept.Transaction_Date | date}}</td>
+      <td>{{dept.balance}}</td>
     </tr>
-      <tr *ngFor="let dept of transli">
-        <td>{{ dept.Transaction_Id }}</td>
-        <td>{{ dept.From_Account_Number }}</td>
-        <td>{{ dept.To_Account_Number }}</td>
-        <td>{{ dept.Amount }}</td>
-        <td>{{dept.Mode}}</td>
-        <td>{{dept.Remark}}</td>
-        <td>{{ dept.Transaction_Date | date}}</td></tr>
-      </table>
-    </div>
+    </table>
+  </div>
 </div>

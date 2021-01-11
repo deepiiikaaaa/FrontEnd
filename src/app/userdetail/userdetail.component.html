@@ -87,13 +87,13 @@
     </div>
     <div class="form-group">
         <label>Aadhar Number*</label>
-        <input type="number" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control"  placeholder="Enter Aadhar Number" required minlength="12" maxlength="12">
+        <input type="text" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control"  placeholder="Enter Aadhar Number" required pattern="\d{12}">
         <div *ngIf="Aadhar_Number.invalid && (Aadhar_Number.dirty || Aadhar_Number.touched)"
         class="alert alert-danger">
             <div *ngIf="Aadhar_Number.errors.required">
                 Aadhar Number is required
             </div>
-            <div *ngIf="Aadhar_Number.errors.minlength && Aadhar_Number.errors.maxlength">
+            <div *ngIf="Aadhar_Number.errors.pattern">
                 Must be 12 digits 
             </div>
       </div>
@@ -350,3 +350,4 @@
         <button type="submit" [disabled]="form.invalid"  class="btn btn-primary">Submit</button>
     </div> 
 </form>
+

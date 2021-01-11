@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-logout',
-  templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
+  selector: 'app-adminlogout',
+  templateUrl: './adminlogout.component.html',
+  styleUrls: ['./adminlogout.component.css']
 })
-export class LogoutComponent implements OnInit {
+export class AdminlogoutComponent implements OnInit {
   sessionval:string ="";
-  sessionval2:string ="";
+  
   
   constructor(private router:Router) { }
 
@@ -26,18 +26,18 @@ export class LogoutComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.sessionval= localStorage.getItem("cusid");
+    this.sessionval=localStorage.getItem("adId");
     if(this.sessionval==null)
     {
-      alert("session expired"+localStorage.getItem("logouttime"));
-      this.router.navigate(['/login']);
+      alert("session expired"+localStorage.getItem("adminlogouttime"));
+      this.router.navigate(['/admin']);
     }
     else{
-      localStorage.removeItem("cusid");
-      localStorage.setItem("logouttime",this.formatAMPM(new Date))
+      localStorage.removeItem("adId");
+      localStorage.setItem("adminlogouttime",this.formatAMPM(new Date))
     }
 
-    
+   
   }
 
 }

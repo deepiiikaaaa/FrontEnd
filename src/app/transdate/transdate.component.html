@@ -1,3 +1,5 @@
+<p> trans date works</p>
+
 <div class='container'>
     <h4>Please enter the Credentials</h4>
     <form #deptForm='ngForm' (ngSubmit)='save()'>
@@ -24,18 +26,28 @@
                 <th>Transaction Id</th>
                 <th>From Account Number</th>
                 <th>To Account Number</th>
+                <th> Benificiary Name</th>
                 <th>Amount</th>
                 <th>Mode</th>
                 <th>Remark</th>
                 <th>Transaction Date</th>
+                <th>Closing Balance</th>
               </tr>
-                <tr *ngFor="let dept of transli">
+                <tr *ngFor="let dept of transli; let i = index">
+                    <div *ngIf='back()'></div>
                   <td>{{ dept.Transaction_Id }}</td>
                   <td>{{ dept.From_Account_Number }}</td>
                   <td>{{ dept.To_Account_Number }}</td>
+                  <ng-container *ngFor="let beni of benili">
+                    <ng-container *ngIf='check(beni.Beneficiary_Account_Number,dept.To_Account_Number)'>
+                    <td> {{beni.Beneficiary_Name}}</td>
+                    </ng-container>
+                </ng-container>
                   <td>{{ dept.Amount }}</td>
                   <td>{{dept.Mode}}</td>
                   <td>{{dept.Remark}}</td>
-                  <td>{{ dept.Transaction_Date | date}}</td></tr>
+                  <td>{{ dept.Transaction_Date | date}}</td>
+                  <td>{{dept.balance}}</td>
+                </tr>
                 </table>
     </div>

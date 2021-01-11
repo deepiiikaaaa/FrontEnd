@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     
     if(this.sessionval==null)
     {
-      alert("session expired");
+      alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
 

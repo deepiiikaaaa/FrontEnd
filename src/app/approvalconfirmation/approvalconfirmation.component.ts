@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IEamil } from '../models/IEmail';
+
 import { Iuserdetail } from '../models/Iuserdetail';
 import { UserdetailService } from '../services/userdetail.service';
 
@@ -9,6 +11,7 @@ import { UserdetailService } from '../services/userdetail.service';
   styleUrls: ['./approvalconfirmation.component.css']
 })
 export class ApprovalconfirmationComponent implements OnInit {
+  sessionval:string="";
 details:Iuserdetail={
   Reference_ID :null,
   Title :'',
@@ -40,6 +43,16 @@ details:Iuserdetail={
   Account_type:'',
   Approval_Status:''
 };
+credential:IEamil={
+  Reference_Id: null,
+  Account_Number : null,
+  Customer_Id : null,
+
+  Login_Password : "",
+}
+
+
+refid:number=null;
   constructor(private userservice:UserdetailService,private route:ActivatedRoute,public router:Router) { }
   getUserdetail(id:number){
     this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;})
@@ -47,16 +60,30 @@ details:Iuserdetail={
 
   ngOnInit(): void {
 
+    this.sessionval= localStorage.getItem("adId");
+    
+    if(this.sessionval==null)
+    {
+      alert("session expired"+localStorage.getItem("adminlogouttime"));
+      this.router.navigate(['/admin']);
+    }
     const id=+this.route.snapshot.paramMap.get('id');
     
     this.getUserdetail(id);
 
   }
 
+
   editDetail(){
-    console.log(this.details);
-    this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Approved");this.router.navigate(['/approval']);});
+    console.log(this.details.Reference_ID);
+    this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Approved");this.router.navigate(['/approval']);
+    this.email(this.details.Reference_ID);
+  });
   }
+email(id:number){
+  this.userservice.getcredential(id).subscribe((data:IEamil)=>{this.credential=data;alert(this.credential.Account_Number+":"+this.credential.Customer_Id+":"+this.credential.Login_Password);});
+}
+
 
   update(){
     this.details.Approval_Status="yes";

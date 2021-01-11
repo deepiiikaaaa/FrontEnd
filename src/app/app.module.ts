@@ -32,6 +32,8 @@ import { SuccessComponent } from './success/success.component';
 import { FundtrasferComponent } from './fundtrasfer/fundtrasfer.component';
 import { BenidashComponent } from './benidash/benidash.component';
 import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
+import { AccountstatementComponent } from './accountstatement/accountstatement.component';
+import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import { ChangepasswordsComponent } from './changepasswords/changepasswords.comp
     FundtrasferComponent,
     BenidashComponent,
     ChangepasswordsComponent,
+    AccountstatementComponent,
+    AdminlogoutComponent,
     
   ],
   imports: [
