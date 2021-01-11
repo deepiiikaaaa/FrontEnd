@@ -10,7 +10,7 @@
             </tr>
             <tr>
             <td><label for="To_Account_Number">To Account number:</label></td>
-            <td>>
+            <td>
                 <select name ="To_Account_Number" #Title="ngModel" [(ngModel)]='trans.To_Account_Number' 
             class='form-control' required>
                 <option *ngFor="let data of benili">{{data.Beneficiary_Account_Number}}</option>

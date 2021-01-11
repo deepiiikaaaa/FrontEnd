@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Iuserdetail } from '../models/Iuserdetail';
 import { UserdetailService } from '../services/userdetail.service';
 
@@ -41,11 +41,12 @@ tracking:Iuserdetail={
   Approval_Status:''
 };
 referenceid:number;
-  constructor(private userservice:UserdetailService,private router:ActivatedRoute) { }
+errormessage:string="";
+  constructor(private userservice:UserdetailService,private router:Router) { }
 
   gettrackingstatus(id:number){
-    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.tracking=data;})
-    console.log(this.tracking.Approval_Status);
+    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.tracking=data;if(this.tracking.Reference_ID!=this.referenceid){this.errormessage="Reference Id not found";this.router.navigate(['/tracking'])}{this.errormessage="";}})
+    
       }
 
   ngOnInit(): void {

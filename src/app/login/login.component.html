@@ -14,8 +14,12 @@
         </div>
         <hr/>
         <div>
-            <button type='submit' [disabled]='deptForm.invalid' >Save</button>
+            <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary">Login</button>
         </div>
 
     </form>
+    <div>
+        <a [routerLink] = "['/forgotuserid']" >Forgot UserId?</a><br/>
+        <a [routerLink] = "['/forgotpassword']">Forgot Password?</a><br/>
+    </div>
 </div>

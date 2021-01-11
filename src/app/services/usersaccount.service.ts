@@ -22,11 +22,23 @@ export class UsersaccountService {
     return this.http.get<Iusersaccount>(this.url+"/GetCustId/"+id);
   }
 
+  getUsersAccount(id:number):Observable<number>{
+    return this.http.get<number>(this.url+""+id)
+  }
+
   registerdetail(data:Iusersaccount):Observable<Iusersaccount>{
     return this.http.put<Iusersaccount>(this.url+'/PutRegister/'+data.Account_Number,data,this.httpOptions);
   }
-
+  
   setnewpassword(data:Iusersaccount,Account_Number:number):Observable<Iusersaccount>{
     return this.http.put<Iusersaccount>(this.url+'/PutNewPassword/'+Account_Number,data,this.httpOptions);
+  }
+
+  deletelocked(Account_Number:number):Observable<string>{
+    return this.http.delete<string>(this.url+"/Deletelocked/"+Account_Number,this.httpOptions);
+  }
+
+  changenewpassword(data:Iusersaccount,Customer_Id:number):Observable<Iusersaccount>{
+    return this.http.put<Iusersaccount>(this.url+'/PutChangePassword/'+Customer_Id,data,this.httpOptions)
   }
 }

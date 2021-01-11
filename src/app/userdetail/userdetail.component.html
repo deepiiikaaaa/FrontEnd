@@ -12,64 +12,177 @@
     </div>
     <div class="form-group">
         <label>First Name*</label>
-        <input type="text" name="First_Name" #First_Name="ngModel" [(ngModel)]="details.First_Name" class="form-control" required >
-        <div class="validation-error" style="color:red" *ngIf="First_Name.invalid && (First_Name.dirty||First_Name.touched)">This field is required</div>
-        <!-- <div *ngIf="First_Name.errors.pattern">
-            Name must be a characters.
-          </div> -->
+        <input type="text" name="First_Name" #First_Name="ngModel" [(ngModel)]="details.First_Name" class="form-control" placeholder="Enter FirstName" required pattern="([a-zA-Z]{3,20})">
+          <div *ngIf="First_Name.invalid && (First_Name.dirty || First_Name.touched)"
+            class="alert alert-danger">
+                <div *ngIf="First_Name.errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="First_Name.errors.pattern">
+                    Name must be at least 3 characters and atmost 20 characters long.
+                </div>
+          </div>
     </div>
     <div class="form-group">
         <label>Middle Name</label>
-        <input type="text" name="Middle_Name" #Middle_Name ="ngModel" [(ngModel)]="details.Middle_Name" class="form-control">
+        <input type="text" name="Middle_Name" #Middle_Name ="ngModel" [(ngModel)]="details.Middle_Name" class="form-control" placeholder="Enter MiddleName" pattern="([a-zA-Z]{1,20})">
+        <div *ngIf="Middle_Name.invalid && (Middle_Name.dirty || Middle_Name.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Middle_Name.errors.pattern">
+                Name must be at least 1 characters and atmost 20 characters long.
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Last Name*</label>
-        <input type="text" name="Last_Name" #Last_Name="ngModel" [(ngModel)]="details.Last_Name" class="form-control">
+        <input type="text" name="Last_Name" #Last_Name="ngModel" [(ngModel)]="details.Last_Name" class="form-control" placeholder="Enter LastName" required pattern="([a-zA-Z]{1,20})">
+        <div *ngIf="Last_Name.invalid && (Last_Name.dirty || Last_Name.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Last_Name.errors.required">
+                Last Name is required.
+            </div>
+            <div *ngIf="Last_Name.errors.pattern">
+                Last Name must be at least 1 characters and atmost 20 characters long.
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Father Name*</label>
-        <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control">
+        <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control" placeholder="Enter FatherName" required pattern="([a-zA-Z]{3,20})">
+        <div *ngIf="Father_Name.invalid && (Father_Name.dirty || Father_Name.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Father_Name.errors.required">
+                Father Name is required.
+            </div>
+            <div *ngIf="Father_Name.errors.pattern">
+                Father Name must be at least 3 characters and atmost 20 characters long.
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Mobile Number*</label>
-        <input type="number" name="Mobile_Number" #Mobile_Number="ngModel" [(ngModel)]="details.Mobile_Number" class="form-control">
+        <input type="text" name="Mobile_Number" #Mobile_Number="ngModel" [(ngModel)]="details.Mobile_Number" class="form-control" placeholder="Enter MobileNumber" required pattern="([+]\d{2})?[6789]\d{9}">
+        <div *ngIf="Mobile_Number.invalid && (Mobile_Number.dirty || Mobile_Number.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Mobile_Number.errors.required">
+                Mobile Number is required
+            </div>
+            <div *ngIf="Mobile_Number.errors.pattern">
+                +[91]XXXXXXXXXX
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Email Id *</label>
-        <input type="text" name="Email_Id" #Email_Id ="ngModel" [(ngModel)]="details.Email_Id " class="form-control">
+        <input type="text" name="Email_Id" #Email_Id ="ngModel" [(ngModel)]="details.Email_Id " class="form-control" placeholder="somthing@someserver.com" required pattern="([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})">
+        <div *ngIf="Email_Id.invalid && (Email_Id.dirty || Email_Id.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Email_Id.errors.required">
+                Email ID is required
+            </div>
+            <div *ngIf="Email_Id.errors.pattern">
+                Invalid Email Format
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Aadhar Number*</label>
-        <input type="number" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control">
+        <input type="number" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control"  placeholder="Enter Aadhar Number" required minlength="12" maxlength="12">
+        <div *ngIf="Aadhar_Number.invalid && (Aadhar_Number.dirty || Aadhar_Number.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Aadhar_Number.errors.required">
+                Aadhar Number is required
+            </div>
+            <div *ngIf="Aadhar_Number.errors.minlength && Aadhar_Number.errors.maxlength">
+                Must be 12 digits 
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Date of Birth*</label>
-        <input type="date" name="Date_of_Birth" #Date_of_Birth="ngModel" [(ngModel)]="details.Date_of_Birth" class="form-control">
+        <input type="date" name="Date_of_Birth" #Date_of_Birth="ngModel" [(ngModel)]="details.Date_of_Birth" class="form-control" required>
+        <div *ngIf="Date_of_Birth.invalid && (Date_of_Birth.dirty || Date_of_Birth.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Date_of_Birth.errors.required">
+                DateofBirth is required
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Address Line1 *</label>
-        <input type="text" name="Address_Line1" #Address_Line1 ="ngModel"  [(ngModel)]="details.Address_Line1 " class="form-control">
+        <input type="text" name="Address_Line1" #Address_Line1 ="ngModel"  [(ngModel)]="details.Address_Line1 " class="form-control" placeholder="Enter first line" required maxlength="20">
+        <div *ngIf="Address_Line1.invalid && (Address_Line1.dirty || Address_Line1.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Address_Line1.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="Address_Line1.errors.minlength && Address_Line1.errors.maxlength">
+                Maximum 20 characters
+            </div>
+      </div>
     </div>
 
     <div class="form-group">
         <label>Address Line2 *</label>
-        <input type="text" name="Address_Line2" #Address_Line2="ngModel" [(ngModel)]="details.Address_Line2" class="form-control">
+        <input type="text" name="Address_Line2" #Address_Line2="ngModel" [(ngModel)]="details.Address_Line2" class="form-control" placeholder="Enter second line" required maxlength="20">
+        <div *ngIf="Address_Line2.invalid && (Address_Line2.dirty || Address_Line2.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Address_Line2.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="Address_Line2.errors.minlength && Address_Line2.errors.maxlength">
+                Maximum 20 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Lankmark</label>
-        <input type="text" name="Lankmark" #Lankmark="ngModel" [(ngModel)]="details.Lankmark" class="form-control">
+        <input type="text" name="Lankmark" #Lankmark="ngModel" [(ngModel)]="details.Lankmark" placeholder="Enter Lankmark" pattern="[A-Za-z]{1,15}"  class="form-control">
+        <div *ngIf="Lankmark.invalid && (Lankmark.dirty || Lankmark.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Lankmark.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>State*</label>
-        <input type="text" name="State" #State="ngModel" [(ngModel)]="details.State" class="form-control">
+        <input type="text" name="State" #State="ngModel" [(ngModel)]="details.State" placeholder="Enter State" required pattern="[A-Za-z]{1,15}" class="form-control">
+        <div *ngIf="State.invalid && (State.dirty || State.touched)"
+        class="alert alert-danger">
+            <div *ngIf="State.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="State.errors.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>City*</label>
-        <input type="text" name="City" #City="ngModel" [(ngModel)]="details.City" class="form-control">
+        <input type="text" name="City" #City="ngModel" [(ngModel)]="details.City" placeholder="Enter City" required  pattern="[A-Za-z]{1,15}" class="form-control">
+        <div *ngIf="City.invalid && (City.dirty || City.touched)"
+        class="alert alert-danger">
+            <div *ngIf="City.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="City.errors.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Pincode*</label>
-        <input type="number" name="Pincode" #Pincode="ngModel" [(ngModel)]="details.Pincode" class="form-control">
+        <input type="number" name="Pincode" #Pincode="ngModel" [(ngModel)]="details.Pincode" placeholder="Enter Pincode" required pattern="\d{6}" class="form-control">
+        <div *ngIf="Pincode.invalid && (Pincode.dirty || Pincode.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Pincode.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="Pincode.errors.pattern">
+                Must be  6 digit
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Permanent Address</label><br/>
@@ -78,75 +191,162 @@
     </div>
     <div class="form-group">
         <label>Address Line1 *</label>
-        <input type="text" name="PermanentAddress_Line1"  #PermanentAddress_Line1 ="ngModel"  [(ngModel)]="details.PermanentAddress_Line1"  class="form-control" value="isChecked">
+        <input type="text" name="PermanentAddress_Line1"  #PermanentAddress_Line1 ="ngModel"  [(ngModel)]="details.PermanentAddress_Line1"  class="form-control" placeholder="Enter first line" required maxlength="20">
+        <div *ngIf="PermanentAddress_Line1.invalid && (PermanentAddress_Line1.dirty || PermanentAddress_Line1.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentAddress_Line1.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentAddress_Line1.errors.minlength && PermanentAddress_Line1.errors.maxlength">
+                Maximum 20 characters
+            </div>
+      </div>
     </div>
 
     <div class="form-group">
         <label>Address Line2 *</label>
-        <input type="text" name="PermanentAddress_Line2" #PermanentAddress_Line2="ngModel" [(ngModel)]="details.PermanentAddress_Line2" class="form-control">
+        <input type="text" name="PermanentAddress_Line2" #PermanentAddress_Line2="ngModel" [(ngModel)]="details.PermanentAddress_Line2" class="form-control" placeholder="Enter second line" required maxlength="20">
+        <div *ngIf="PermanentAddress_Line2.invalid && (PermanentAddress_Line2.dirty || PermanentAddress_Line2.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentAddress_Line2.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentAddress_Line2.errors.minlength && PermanentAddress_Line2.errors.maxlength">
+                Maximum 20 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Lankmark</label>
-        <input type="text" name="PermanentLankmark" #PermanentLankmark="ngModel" [(ngModel)]="details.PermanentLankmark" class="form-control">
+        <input type="text" name="PermanentLankmark" #PermanentLankmark="ngModel" [(ngModel)]="details.PermanentLankmark" class="form-control" placeholder="Enter Lankmark" pattern="[A-Za-z]{1,15}">
+        <div *ngIf="PermanentLankmark.invalid && (PermanentLankmark.dirty || PermanentLankmark.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentLankmark.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentLankmark.errors.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>State*</label>
-        <input type="text" name="PermanentState" #PermanentState="ngModel" [(ngModel)]="details.PermanentState" class="form-control">
+        <input type="text" name="PermanentState" #PermanentState="ngModel" [(ngModel)]="details.PermanentState" class="form-control" placeholder="Enter State" required pattern="[A-Za-z]{1,15}">
+        <div *ngIf="PermanentState.invalid && (PermanentState.dirty || PermanentState.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentState.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentState.errors.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>City*</label>
-        <input type="text" name="PermanentCity" #PermanentCity="ngModel" [(ngModel)]="details.PermanentCity" class="form-control">
+        <input type="text" name="PermanentCity" #PermanentCity="ngModel" [(ngModel)]="details.PermanentCity" class="form-control" placeholder="Enter #City" required pattern="[A-Za-z]{1,15}">
+        <div *ngIf="PermanentCity.invalid && (PermanentCity.dirty || PermanentCity.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentCity.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentCity.errors.pattern">
+                Maximum 15 characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Pincode*</label>
-        <input type="number" name="PermanentPincode" #PermanentPincode="ngModel" [(ngModel)]="details.PermanentPincode" class="form-control">
+        <input type="number" name="PermanentPincode" #PermanentPincode="ngModel" [(ngModel)]="details.PermanentPincode" class="form-control" placeholder="Enter Pincode" required pattern="\d{6}">
+        <div *ngIf="PermanentPincode.invalid && (PermanentPincode.dirty || PermanentPincode.touched)"
+        class="alert alert-danger">
+            <div *ngIf="PermanentPincode.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="PermanentPincode.errors.pattern">
+                Must be  6 digit
+            </div>
+      </div>
     </div>
 
     <div class="form-group">
         <label>Occupation type*</label>
-        <input type="text" name="Occupation_type" #Occupation_type="ngModel" [(ngModel)]="details.Occupation_type" class="form-control">
+        <input type="text" name="Occupation_type" #Occupation_type="ngModel" [(ngModel)]="details.Occupation_type" class="form-control" placeholder="Enter Occupation Type" required pattern="[A-Za-z]{1,}">
+        <div *ngIf="Occupation_type.invalid && (Occupation_type.dirty || Occupation_type.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Occupation_type.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="Occupation_type.errors.pattern">
+                Must be characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Source of Income*</label>
-        <input type="text" name="Source_of_Income" #Source_of_Income="ngModel" [(ngModel)]="details.Source_of_Income" class="form-control">
+        <input type="text" name="Source_of_Income" #Source_of_Income="ngModel" [(ngModel)]="details.Source_of_Income" class="form-control" placeholder="Enter Source of Income" required pattern="[A-Za-z]{1,}">
+        <div *ngIf="Source_of_Income.invalid && (Source_of_Income.dirty || Source_of_Income.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Source_of_Income.errors.required">
+                This field is required
+            </div>
+            <div *ngIf="Source_of_Income.errors.pattern">
+                Must be characters
+            </div>
+      </div>
     </div>
     <div class="form-group">
         <label>Gross Annual Income*</label>
-        <input type="number" name="Gross_Annual_Income" #Gross_Annual_Income="ngModel" [(ngModel)]="details.Gross_Annual_Income" class="form-control">
+        <input type="number" name="Gross_Annual_Income" #Gross_Annual_Income="ngModel" [(ngModel)]="details.Gross_Annual_Income" placeholder="Enter Gross Amount" class="form-control" required>
     </div>
+    <div *ngIf="Gross_Annual_Income.invalid && (Gross_Annual_Income.dirty || Gross_Annual_Income.touched)"
+    class="alert alert-danger">
+        <div *ngIf="Gross_Annual_Income.errors.required">
+            This field is required
+        </div>
+  </div>
 
     <div class="form-group">
-        <label>Debit_Card</label><br/>
         <label>Do you want a debit card?*</label>
-        <select name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card">
+        <select name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card" required>
             <option *ngFor="let data3 of debitcard">{{data3}}</option>
         </select>
+        <div *ngIf="Debit_Card.invalid && (Debit_Card.dirty || Debit_Card.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Debit_Card.errors.required">
+                This field is required
+            </div>
+        </div>
     </div>
     <div class="form-controlName">
         <label>Netbanking*</label>
-        <select name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" class="form-control">
+        <select name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" class="form-control" required>
             <option *ngFor="let data1 of netbanking">{{data1}}</option>
         </select>
+        <div *ngIf="Net_banking.invalid && (Net_banking.dirty || Net_banking.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Net_banking.errors.required">
+                This field is required
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <label>Account type*</label>
-        <select name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" class="form-control">
+        <select name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" class="form-control" required>
             <option *ngFor="let data2 of accounttype">{{data2}}</option>
         </select>
-    </div>
-    <!-- <div>
-        <input type="hidden" name="Approval_Status" #Approval_Status="ngModel" [(ngModel)]="service.formData.Approval_Status"  class="form-control">
-    </div> -->
-        <div class="form-group">
-            <input type="checkbox" ><label> I agree</label>
+        <div *ngIf="Account_type.invalid && (Account_type.dirty || Account_type.touched)"
+        class="alert alert-danger">
+            <div *ngIf="Account_type.errors.required">
+                This field is required
+            </div>
         </div>
-        
-    
-    
-    <div class="form-group">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
-
     </div>
-    <div>{{details.Aadhar_Number}}</div>
-<div>{{referenceid}}</div>    
+    <div class="form-group">
+    <label><a href="https://rbidocs.rbi.org.in/rdocs/Content/PDFs/DPDG1152016983F39F41B254A9AA065FB4429D42C05.PDF" target="_blank">Terms and condition</a><br/>
+    <input type="checkbox" required > I agree</label>
+    </div>
+    <div class="text-center">
+        <button type="submit" [disabled]="form.invalid"  class="btn btn-primary">Submit</button>
+    </div> 
 </form>

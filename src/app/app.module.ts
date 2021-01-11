@@ -12,7 +12,6 @@ import { ApprovalComponent } from './approval/approval.component';
 import { ApprovalconfirmationComponent } from './approvalconfirmation/approvalconfirmation.component';
 import { RegisterComponent } from './register/register.component';
 import { TrackingstatusComponent } from './trackingstatus/trackingstatus.component';
-import { UserloginComponent } from './userlogin/userlogin.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
@@ -30,6 +29,9 @@ import { RtgsComponent } from './rtgs/rtgs.component';
 import { ImpsComponent } from './imps/imps.component';
 import { NeftComponent } from './neft/neft.component';
 import { SuccessComponent } from './success/success.component';
+import { FundtrasferComponent } from './fundtrasfer/fundtrasfer.component';
+import { BenidashComponent } from './benidash/benidash.component';
+import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
 
 
 @NgModule({
@@ -41,7 +43,6 @@ import { SuccessComponent } from './success/success.component';
     ApprovalconfirmationComponent,
     RegisterComponent,
     TrackingstatusComponent,
-    UserloginComponent,
     HomeComponent,
     ForgotuseridComponent,
     ForgotpasswordComponent,
@@ -59,6 +60,9 @@ import { SuccessComponent } from './success/success.component';
     ImpsComponent,
     NeftComponent,
     SuccessComponent,
+    FundtrasferComponent,
+    BenidashComponent,
+    ChangepasswordsComponent,
     
   ],
   imports: [

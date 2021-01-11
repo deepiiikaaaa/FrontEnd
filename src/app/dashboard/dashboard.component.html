@@ -1,34 +1,89 @@
-<p>DASHBOARD</p>
-<p class="btn-success">
-Acc no : {{ user.Account_Number }}
-    Name : {{user.Customername | uppercase}} </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
 
-    <h3> Subscribe for netbanking to access Transaction and Beneficiary management</h3>
-<div *ngIf='isTrue'>
-  <a [routerLink] = "['/beni']" >Benificiary List</a> ||
-  <a [routerLink] = "['/beniadd']" >Add new Benificiary</a> || 
-  <a [routerLink] = "['/transpage']">New Transaction</a> ||
-  <a [routerLink] = "['/translis']">Transaction Summary</a> ||
-  <a [routerLink] = "['/datesummary']">Transaction Statement</a>
+
+<div class="container-fluid">
+  <p class="btn-success">
+    Acc no : {{ user.Account_Number }}
+        Name : {{user.Customername | uppercase}} <a [routerLink] = "['/logout']" style="float:right">logout</a> </p>    
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>DashBoard</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a [routerLink] = "['/dashboard']">Dashboard</a></li><br/>
+        
+        <li><a [routerLink] = "['/useredit/',user.Reference_Id]">AcountDetails </a></li>
+        <li><a [routerLink] = "['/Accountsummary']">AccountSummary</a></li>
+        <li><a [routerLink] = "['/transdash']">Transaction Dashboard</a></li>
+        <li><a [routerLink] = "['/benidash']">Benificiary Dashboard</a></li>
+        <!-- <li><a [routerLink] = "['/Fundtransfer']">Fund Transfer</a></li> -->
+        <li><a [routerLink] = "['/Accountstatement']" >Account Statement</a></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>DashBoard</h4>
+        
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a [routerLink] = "['/Accountstatement']" >Account Statement</a></h4>
+            
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a [routerLink] = "['/Fundtransfer']">Fund Transfer</a></h4>
+            
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a [routerLink] = "['/useredit/',user.Reference_Id]">User Profile</a></h4>
+            
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a [routerLink] = "['/changepassword']">Change Password</a></h4>
+          
+          </div>
+        </div>
+      </div> 
+    
+      
+    </div>
+  </div>
 </div>
 
-<table style="border:2px solid black;margin-left:auto">
-    <tr>
-      <th>Select Banking Facility</th>
-    </tr>
-    <tr>
-      <th><a [routerLink] = "['/beniadd']" >Add new Benificiary</a></th>
-    </tr>
-    <tr>
-      <th><a [routerLink] = "['/beni']" >Benificiary List</a></th>
-    </tr>
-    <tr>
-      <th><a [routerLink] = "['/transpage']">New Transaction</a></th>
-    </tr>
-    <tr>
-      <th><a [routerLink] = "['/translis']">Transaction Summary</a></th>
-    </tr>
-    <tr>
-        <th><a [routerLink] = "['/datesummary']">Transaction Statement</a></th>
-      </tr>
-  </table>
+</body>
+</html>
+
+

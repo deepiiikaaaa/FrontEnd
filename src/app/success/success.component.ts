@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TransactionService} from './../services/transaction.service';
 import { ITrans } from '../models/ITrans';
 import { IUser } from '../models/IUser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-success',
   templateUrl: './success.component.html',
@@ -15,7 +16,7 @@ export class SuccessComponent implements OnInit {
   id:number ;
   tempid:number;
   
-  constructor(private transservice: TransactionService) { }
+  constructor(private transservice: TransactionService,private router:Router) { }
   getuser(){
     this.transservice.getuser(this.id).subscribe((data:IUser) =>{
       this.user = data;
@@ -30,8 +31,13 @@ export class SuccessComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    this.sessionval= sessionStorage.getItem("cusid");
+    this.sessionval= localStorage.getItem("cusid");
     this.id = parseInt(this.sessionval);
+    if(this.sessionval==null)
+    {
+      alert("session expired");
+      this.router.navigate(['/login']);
+    }
     this.getuser();
   }
 

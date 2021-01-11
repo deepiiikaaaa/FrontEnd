@@ -1,5 +1,5 @@
 export interface Iuserdetail {
-    Reference_ID :bigint;
+    Reference_ID :number;
     Title :string;
     First_Name:string;
     Middle_Name : string ;

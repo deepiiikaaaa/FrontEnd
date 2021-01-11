@@ -11,6 +11,8 @@ import { UserdetailService } from '../services/userdetail.service';
 export class UserdetailEditComponent implements OnInit {
 
   isChecked:boolean=false;
+  sessionval:string ="";
+  id:number ;
 
   details:Iuserdetail={
     Reference_ID :null,
@@ -67,7 +69,7 @@ export class UserdetailEditComponent implements OnInit {
 }
 
 getUserdetail(id:number){
-  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;this.router.navigate(['/login']);})
+  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;})
   
     }
 
@@ -82,7 +84,13 @@ getUserdetail(id:number){
 
 
   ngOnInit(): void {
-
+    this.sessionval= localStorage.getItem("cusid");
+    this.id = parseInt(this.sessionval);
+    if(this.sessionval==null)
+    {
+      alert("session expired");
+      this.router.navigate(['/login']);
+    }
     const id=+this.route.snapshot.paramMap.get('id');
     
     this.getUserdetail(id);

@@ -35,8 +35,13 @@ export class TranslisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionval= sessionStorage.getItem("cusid");
+    this.sessionval= localStorage.getItem("cusid");
     this.id = parseInt(this.sessionval);
+    if(this.sessionval==null)
+    {
+      alert("session expired");
+      this.router.navigate(['/login']);
+    }
     this.getuser();
   }
 

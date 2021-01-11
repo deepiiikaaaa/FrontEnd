@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   saveLogin(model:ILog){
     this.model=model;
     this.num=model.CustomerID.toString();
-    sessionStorage.setItem("cusid", this.num);
+    localStorage.setItem("cusid", this.num);
     this.login();
   }
 

@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ITrans } from '../models/ITrans';
-import { IUser } from '../models/IUser';
-import { Iuserdetail } from '../models/Iuserdetail';
+import {UserdetailService} from './../services/userdetail.service'
 import { Router} from '@angular/router';
 import {TransactionService} from './../services/transaction.service'
-import {UserdetailService} from './../services/userdetail.service'
-import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
+import { IUser } from '../models/IUser';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-benidash',
+  templateUrl: './benidash.component.html',
+  styleUrls: ['./benidash.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class BenidashComponent implements OnInit {
   sessionval:string ="";
   id:number ;
   user:IUser;
@@ -38,18 +35,20 @@ export class DashboardComponent implements OnInit {
     if(this.yesno=="YES"){
         this.isTrue=true;
     }
+    else{
+      alert(this.id + "has not scubscribed for internet banking please subscribe to use the transaction facility");
+      this.router.navigate(['/dashboard']);
+    }
   }
   ngOnInit(): void {
     this.sessionval= localStorage.getItem("cusid");
-    console.log(this.sessionval);
-    
+    this.id = parseInt(this.sessionval);
     if(this.sessionval==null)
     {
       alert("session expired");
       this.router.navigate(['/login']);
     }
 
-    this.id = parseInt(this.sessionval);
     this.getuser();
   }
 

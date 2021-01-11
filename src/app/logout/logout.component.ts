@@ -11,8 +11,8 @@ export class LogoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sessionval=sessionStorage.getItem("cusid");
-    sessionStorage.clear();
+    this.sessionval=localStorage.getItem("cusid");
+    localStorage.clear();
   }
 
 }

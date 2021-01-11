@@ -22,7 +22,10 @@ import {BeniaddComponent} from './beniadd/beniadd.component';
 import {TranslisComponent} from './translis/translis.component';
 import {LogoutComponent} from './logout/logout.component'
 import {TransdateComponent} from './transdate/transdate.component'
-import {UserloginComponent} from './userlogin/userlogin.component'
+import { FundtrasferComponent } from './fundtrasfer/fundtrasfer.component';
+import { TransdashComponent } from './transdash/transdash.component';
+import { BenidashComponent } from './benidash/benidash.component';
+import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
 
 const routes: Routes = [
   {path:"openaccount",component:UserdetailComponent},
@@ -36,7 +39,7 @@ const routes: Routes = [
   {path:"forgotpassword",component:ForgotpasswordComponent},
   {path:"setnewpassword/:id",component:SetnewpasswordComponent},
   {path:'dashboard',component:DashboardComponent},
-  {path:'transpage',component:UserloginComponent},
+  {path:'Fundtransfer',component:FundtrasferComponent},
   {path:'admin',component:AdminloginComponent},
   {path:'rtgs',component:RtgsComponent},
   {path:'imps',component:ImpsComponent},
@@ -45,9 +48,12 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'beni',component:BenificiaryComponent},
   {path:'beniadd',component:BeniaddComponent},
-  {path:'translis',component:TranslisComponent},
+  {path:'Accountsummary',component:TranslisComponent},
   {path:'logout',component:LogoutComponent},
-  {path:'datesummary',component:TransdateComponent},
+  {path:'Accountstatement',component:TransdateComponent},
+  {path:'transdash',component:TransdashComponent},
+  {path:'benidash',component:BenidashComponent},
+  {path:'changepassword',component:ChangepasswordsComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

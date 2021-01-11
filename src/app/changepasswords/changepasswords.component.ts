@@ -4,11 +4,11 @@ import { Iusersaccount } from '../models/Iusersaccount';
 import { UsersaccountService } from '../services/usersaccount.service';
 
 @Component({
-  selector: 'app-setnewpassword',
-  templateUrl: './setnewpassword.component.html',
-  styleUrls: ['./setnewpassword.component.css']
+  selector: 'app-changepasswords',
+  templateUrl: './changepasswords.component.html',
+  styleUrls: ['./changepasswords.component.css']
 })
-export class SetnewpasswordComponent implements OnInit {
+export class ChangepasswordsComponent implements OnInit {
 
   data:Iusersaccount={
     Account_Number:null,
@@ -25,22 +25,27 @@ export class SetnewpasswordComponent implements OnInit {
     Reference_Id:null,
     Otp:null
    }
-   lockstatus:string="";
+   sessionval:string ="";
+   id:number ;
   constructor(private registerservice:UsersaccountService,private router:Router,private route:ActivatedRoute) { }
-  unlocked(id:number){
-    this.registerservice.deletelocked(id).subscribe((data:string)=>{this.lockstatus=data;alert(this.lockstatus)});
-  }
-  setnewpassword(id:number){
-    this.registerservice.setnewpassword(this.data,id).subscribe(()=>{alert("Record Edited");this.unlocked(id);this.router.navigate(['/login']);});
+
+   Changenewpassword(id:number){
+    this.registerservice.changenewpassword(this.data,id).subscribe(abc=>{alert("Password Changed");this.router.navigate(['/login']);});
   }
 
   saveRegister(data:Iusersaccount){
     this.data=data;
-    const id=+this.route.snapshot.paramMap.get('id')
-    this.setnewpassword(id);
+    this.Changenewpassword(this.id);
   }
+
   ngOnInit(): void {
-    
+    this.sessionval= localStorage.getItem("cusid");
+    this.id = parseInt(this.sessionval);
+    if(this.sessionval==null)
+    {
+      alert("session expired");
+      this.router.navigate(['/login']);
+    }
   }
 
 }

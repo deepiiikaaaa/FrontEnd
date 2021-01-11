@@ -1,0 +1,15 @@
+<p>benidash works!</p>
+
+<div>
+    <h3> Welcome to the Benificiary management</h3><br><br>
+</div>
+
+<div *ngIf="isTrue; else loggedOut">
+  <h6>use the following Facility available</h6>
+    <a [routerLink] = "['/beni']" >Benificiary List</a> ||
+    <a [routerLink] = "['/beniadd']" >Add new Benificiary</a>
+  </div>
+
+  <ng-template #loggedOut>
+    <h2> Please Subscribe to use the service </h2> 
+  </ng-template>
