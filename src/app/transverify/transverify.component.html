@@ -1,0 +1,20 @@
+<div class='container'>
+    <h4>Please enter the Transaction Password</h4>
+    <form #deptForm='ngForm' (ngSubmit)='saveLogin(model)'>
+        <div>
+            <label for="CustomerID">Customer ID:</label>
+            <input type='text' class='form-control' id='CustomerID' name='CustomerID' required
+             value="{{sessionval}}" readonly />
+        </div>
+        <div>
+            <label for="Password">Enter Transaction Password:</label>
+            <input type='password' class='form-control' id='Password' name='Password' required
+             [(ngModel)]='model.Password' />
+        </div>
+        <hr/>
+        <div>
+            <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary">Login</button>
+        </div>
+
+    </form>
+</div>

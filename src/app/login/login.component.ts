@@ -54,7 +54,8 @@ export class LoginComponent implements OnInit {
       () => {
         alert(this.model.CustomerID+"has been locked try forget password");
         this.router.navigate(['/login']);
-      }
+      },
+      error=>{alert(error.error.Message);}
       )
       
   }
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
     if(this.sessionval!=null)
     {
       alert("Already Logged In");
-      this.router.navigate(['/logout']);
+      this.router.navigate(['/dashboard']);
     }
   }
 

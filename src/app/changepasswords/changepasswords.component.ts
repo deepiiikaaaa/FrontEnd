@@ -30,7 +30,8 @@ export class ChangepasswordsComponent implements OnInit {
   constructor(private registerservice:UsersaccountService,private router:Router,private route:ActivatedRoute) { }
 
    Changenewpassword(id:number){
-    this.registerservice.changenewpassword(this.data,id).subscribe(abc=>{alert("Password Changed");this.router.navigate(['/login']);});
+    this.registerservice.changenewpassword(this.data,id).subscribe(abc=>{alert("Password Changed");this.router.navigate(['/login']);},
+    error=>{alert(error.error.Message);});
   }
 
   saveRegister(data:Iusersaccount){

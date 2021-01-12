@@ -15,7 +15,6 @@ import { TrackingstatusComponent } from './trackingstatus/trackingstatus.compone
 import { HomeComponent } from './home/home.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 import { TransdateComponent } from './transdate/transdate.component';
 import { TranslisComponent } from './translis/translis.component';
 import { LoginComponent } from './login/login.component';
@@ -34,6 +33,9 @@ import { BenidashComponent } from './benidash/benidash.component';
 import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
 import { AccountstatementComponent } from './accountstatement/accountstatement.component';
 import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
+import { TransverifyComponent } from './transverify/transverify.component';
+import { AdminuserlistComponent } from './adminuserlist/adminuserlist.component';
+import { EdituserdataComponent } from './edituserdata/edituserdata.component';
 
 
 @NgModule({
@@ -48,7 +50,6 @@ import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
     HomeComponent,
     ForgotuseridComponent,
     ForgotpasswordComponent,
-    SetnewpasswordComponent,
     TransdateComponent,
     TranslisComponent,
     LoginComponent,
@@ -67,6 +68,9 @@ import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
     ChangepasswordsComponent,
     AccountstatementComponent,
     AdminlogoutComponent,
+    TransverifyComponent,
+    AdminuserlistComponent,
+    EdituserdataComponent,
     
   ],
   imports: [

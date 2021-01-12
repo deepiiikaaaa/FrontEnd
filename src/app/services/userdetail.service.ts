@@ -23,12 +23,16 @@ export class UserdetailService {
   }
   
   getUserList():Observable<any[]>{
-    return this.http.get<any[]>(this.url+"/getDetails");
+    return this.http.get<any[]>(this.url+"/getaDetails");
+  }
+  getUserAllList():Observable<any[]>{
+    return this.http.get<any[]>(this.url+"/GetallDetails");
   }
 
   getUserdetail(id:number):Observable<Iuserdetail>{
     return this.http.get<Iuserdetail>(this.url+"/GetDetails/"+id);
   }
+  
 
   getRefid():Observable<Iuserdetail>{
     return this.http.get<Iuserdetail>(this.url+"/Getrefid");
@@ -47,6 +51,10 @@ export class UserdetailService {
 
   editUserdetail(details:Iuserdetail):Observable<Iuserdetail>{
     return this.http.put<Iuserdetail>(this.url+'/PutDetails/'+details.Reference_ID,details,this.httpOptions);
+  }
+
+  editUserdata(details:Iuserdetail):Observable<Iuserdetail>{
+    return this.http.put<Iuserdetail>(this.url+'/PutAdminEdit/'+details.Reference_ID,details,this.httpOptions);
   }
 
 }

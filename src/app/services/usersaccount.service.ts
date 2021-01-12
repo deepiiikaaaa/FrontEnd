@@ -3,6 +3,7 @@ import{HttpClient,HttpHeaders} from '@angular/common/http';
 import{Observable,of} from 'rxjs';
 import { Iusersaccount } from '../models/Iusersaccount';
 import { Iaccountstatement } from '../models/Iaccountstatement';
+import { IForgotuser } from '../models/IForgotuserid';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class UsersaccountService {
   }
   constructor(private http:HttpClient) { }
 
-  getbyCustId(id:number):Observable<Iusersaccount>{
-    return this.http.get<Iusersaccount>(this.url+"/GetSetnewPassword/"+id);
+  getbyCustId(id:number):Observable<IForgotuser>{
+    return this.http.get<IForgotuser>(this.url+"/GetSetnewPassword/"+id);
   }
 
-  getbyAccountnumber(id:bigint):Observable<Iusersaccount>{
-    return this.http.get<Iusersaccount>(this.url+"/GetCustId/"+id);
+  getbyAccountnumber(id:bigint):Observable<IForgotuser>{
+    return this.http.get<IForgotuser>(this.url+"/GetCustId/"+id);
   }
 
   getUsersAccount(id:number):Observable<number>{
@@ -43,7 +44,7 @@ export class UsersaccountService {
     return this.http.put<Iusersaccount>(this.url+'/PutChangePassword/'+Customer_Id,data,this.httpOptions)
   }
 
-  getstatement(id:number):Observable<Iaccountstatement>{
-  return this.http.get<Iaccountstatement>(this.url+"/Getstatement/"+id);
+  getstatement(id:number):Observable<Iaccountstatement[]>{
+  return this.http.get<Iaccountstatement[]>(this.url+"/Getstatement/"+id);
   }
 }

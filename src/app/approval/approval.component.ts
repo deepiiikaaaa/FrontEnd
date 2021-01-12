@@ -45,7 +45,8 @@ approval:any[];
 sessionval:string ="";
 
   constructor(private userservice:UserdetailService,private router:Router) {
-  this.userservice.getUserList().subscribe((data)=>{this.approval=data;})
+  this.userservice.getUserList().subscribe((data)=>{this.approval=data;}
+  ,error=>{alert(error.error.Message);})
 }
 
   ngOnInit(): void {

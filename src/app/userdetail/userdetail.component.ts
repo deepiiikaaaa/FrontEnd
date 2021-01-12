@@ -54,16 +54,21 @@ export class UserdetailComponent implements OnInit {
   constructor(private userservice:UserdetailService,private router:Router,private route:ActivatedRoute) { }
 
   getRefid(){
-    this.userservice.getRefid().subscribe((data:Iuserdetail)=>{this.details=data;
-    //console.log(this.details);
-    alert("kindly use the below Reference Id to track your approval status: "+this.details.Reference_ID);});
+    this.userservice.getRefid().subscribe((data:Iuserdetail)=>{
+      this.details=data;
+    alert("kindly use the below Reference Id to track your approval status: "+this.details.Reference_ID);
     this.router.navigate(['/tracking']);
+  },
+    error=>{alert(error.error.Message)});
+    
   }
   addUserdetail(){
     this.userservice.addUserdetail(this.details).subscribe(
       ()=>{alert("sucessfully registered"); 
       this.getRefid();
-    });
+    },
+    error=>{alert(error.error.Message)}
+    );
     
     
   }

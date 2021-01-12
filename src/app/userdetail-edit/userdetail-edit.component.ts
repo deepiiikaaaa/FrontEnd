@@ -69,12 +69,14 @@ export class UserdetailEditComponent implements OnInit {
 }
 
 getUserdetail(id:number){
-  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;})
-  
+  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;},
+  error=>{alert(error.error.Message);});  
     }
 
     editDetail(){
-      this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Record Edited");/*this.router.navigate(['/list']);*/});
+      this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Details Updated");this.router.navigate(['/dashboard']);
+    },
+    error=>{alert(error.error.Message);});
     }
 
     saveDetails(details:Iuserdetail){
@@ -91,9 +93,11 @@ getUserdetail(id:number){
       alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
+    else{
     const id=+this.route.snapshot.paramMap.get('id');
     
     this.getUserdetail(id);
+    }
 
   }
 

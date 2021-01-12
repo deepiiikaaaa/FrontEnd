@@ -21,14 +21,16 @@ export class TransdashComponent implements OnInit {
     this.transservice.getuser(this.id).subscribe((data:IUser) =>{
       this.user = data;
       this.getDetail();
-    })
+    },
+    error=>{alert(error.error.Message);});
   }
 
   getDetail(){
     this.detailservice.getusernet(this.id).subscribe((data:string) => {
       this.yesno=data;
       this.checknet();
-    })
+    },
+    error=>{alert(error.error.Message);});
   }
 
   checknet(){
@@ -48,6 +50,8 @@ export class TransdashComponent implements OnInit {
       alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
+    else{
     this.getuser();
+    }
   }
 }

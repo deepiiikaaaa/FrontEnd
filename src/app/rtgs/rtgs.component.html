@@ -6,34 +6,82 @@
             <tr>
             <td><label for="From_Account_Number">Account number:</label></td>
             <td><input type='text' class='form-control' id='From_Account_Number' name='From_Account_Number' 
-             value="{{tempid}}" /></td>
+             value="{{tempid}}" readonly/></td>
+             
             </tr>
             <tr>
             <td><label for="To_Account_Number">To Account number:</label></td>
             <td>
                 <select name ="To_Account_Number" #Title="ngModel" [(ngModel)]='trans.To_Account_Number' 
             class='form-control' required>
+            <option>Select from below</option>
                 <option *ngFor="let data of benili">{{data.Beneficiary_Account_Number}}</option>
             </select>
             </td>
             <td>
                 <a [routerLink] = "['/beniadd']" >Add new Benificiary</a>
                </td>
+               <td>
+                <div *ngIf="Title.invalid && (Title.dirty || Title.touched)"
+                class="alert alert-danger">
+                    <div *ngIf="Title.errors.required">
+                        This field is required
+                    </div>
+                   </div>
+                   </td>
             </tr>
             <tr>
             <td><label for="Amount">Amount:</label></td>
-            <td><input type='text' class='form-control' id='Amount' name='Amount' required
+            <td><input type='text' class='form-control' id='Amount' #Amount="ngModel" name='Amount' required
              [(ngModel)]='trans.Amount' /></td>
+             <td>
+             <div *ngIf="Amount.invalid && (Amount.dirty || Amount.touched)"
+             class="alert alert-danger">
+                 <div *ngIf="Amount.errors.required">
+                     This field is required
+                 </div>
+                </div>
+                </td>
             </tr>
             <tr>
            <td> <label for="Maturity_Instructions">Maturity Instructions:</label></td>
-            <td><input type='text' class='form-control' id='Maturity_Instructions' name='Maturity_Instructions' required
-             [(ngModel)]='trans.Maturity_Instructions' /></td>
+            <td><input type='text' class='form-control' id='Maturity_Instructions' name='Maturity_Instructions' #Maturity_Instructions="ngModel" required
+             [(ngModel)]='trans.Maturity_Instructions' />
+            </td>
+            <td>
+                <div *ngIf="Maturity_Instructions.invalid && (Maturity_Instructions.dirty || Maturity_Instructions.touched)"
+                class="alert alert-danger">
+                    <div *ngIf="Maturity_Instructions.errors.required">
+                        This field is required
+                    </div>
+                   </div>
+                   </td>
             </tr>
             <tr>
             <td><label for="Remark">Remark:</label></td>
-           <td><input type='text' class='form-control' id='Remark' name='Remark'
-             [(ngModel)]='trans.Remark' /><td>
+           <td><input type='text' class='form-control' id='Remark' name='Remark' #Remark="ngModel"
+             [(ngModel)]='trans.Remark' required/></td>
+                <td>
+                    <div *ngIf="Remark.invalid && (Remark.dirty || Remark.touched)"
+                    class="alert alert-danger">
+                        <div *ngIf="Remark.errors.required">
+                            This field is required
+                        </div>
+                       </div>
+                       </td>      
+            </tr>
+            <tr>
+                <td><label for="Password">Password:</label></td>
+                <td><input type='password' class='form-control' id='Password' name='Password' #Password
+                 [(ngModel)]='password' required/></td>
+                 <td>
+                    <div *ngIf="Password.invalid && (Password.dirty || Password.touched)"
+                    class="alert alert-danger">
+                        <div *ngIf="Password.errors.required">
+                            This field is required
+                        </div>
+                       </div>
+                       </td> 
             </tr>
             </table>
         <hr/>
@@ -44,4 +92,3 @@
 
     </form>
 </div>
-

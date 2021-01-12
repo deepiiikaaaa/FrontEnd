@@ -7,7 +7,6 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 import { TrackingstatusComponent } from './trackingstatus/trackingstatus.component';
 import { UserdetailEditComponent } from './userdetail-edit/userdetail-edit.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
@@ -28,6 +27,9 @@ import { BenidashComponent } from './benidash/benidash.component';
 import { ChangepasswordsComponent } from './changepasswords/changepasswords.component';
 import { AccountstatementComponent } from './accountstatement/accountstatement.component';
 import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
+import { TransverifyComponent } from './transverify/transverify.component';
+import { AdminuserlistComponent } from './adminuserlist/adminuserlist.component';
+import { EdituserdataComponent } from './edituserdata/edituserdata.component';
 
 const routes: Routes = [
   {path:"openaccount",component:UserdetailComponent},
@@ -39,7 +41,6 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"forgotuserid",component:ForgotuseridComponent},
   {path:"forgotpassword",component:ForgotpasswordComponent},
-  {path:"setnewpassword/:id",component:SetnewpasswordComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'Fundtransfer',component:FundtrasferComponent},
   {path:'admin',component:AdminloginComponent},
@@ -58,6 +59,9 @@ const routes: Routes = [
   {path:'benidash',component:BenidashComponent},
   {path:'changepassword',component:ChangepasswordsComponent},
   {path:'Accountstatement',component:AccountstatementComponent},
+  {path:'transverify',component:TransverifyComponent},
+  {path:'adminuserlist',component:AdminuserlistComponent},
+  {path:'edituserdata/:id',component:EdituserdataComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

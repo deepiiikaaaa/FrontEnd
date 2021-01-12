@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
         <label>Father Name*</label>
-        <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control" placeholder="Enter FatherName" required pattern="([a-zA-Z]{3,20})">
+        <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control" placeholder="Enter FatherName" required pattern="([a-zA-Z'']{3,20})">
         <div *ngIf="Father_Name.invalid && (Father_Name.dirty || Father_Name.touched)"
         class="alert alert-danger">
             <div *ngIf="Father_Name.errors.required">

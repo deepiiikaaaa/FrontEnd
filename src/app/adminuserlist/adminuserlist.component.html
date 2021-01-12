@@ -1,6 +1,6 @@
 <div class='container'>
-    <H4 class='btn-danger'>User waiting for Approval</H4>
-    <a [routerLink] = "['/adminuserlist']">EditHolderAccount</a>
+    <H4 class='btn-danger'>Account Holders </H4>
+    <a [routerLink] = "['/approval']">Pending Approval</a>
     <a [routerLink] = "['/adminlogout']" style="float:right">logout</a>
 <!-- <p>
   <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3" >New Department</a>
@@ -11,20 +11,26 @@
       <th>First_Name</th>
       <th>Middle_Name</th>
       <th>Last_Name</th>
+      <th>Mobile_Number</th>
+      <th>Email ID</th>
+      <th>Adhaar Number</th>
       <th>Debit_Card</th>
       <th>Net_Banking</th>
       <th>Account_Type</th>
     </tr>
-      <tr *ngFor="let details of approval">
+      <tr *ngFor="let details of alldata">
       <td>{{ details.Title}}</td>
       <td>{{details.First_Name}}</td>
       <td>{{details.Middle_Name}}</td>
       <td>{{details.Last_Name}}</td>
+      <td>{{details.Mobile_Number}}</td>
+      <td>{{details.Email_Id}}</td>
+      <td>{{details.Aadhar_Number}}</td>
       <td>{{details.Debit_Card}}</td>
       <td>{{details.Net_banking}}</td>
       <td>{{details.Account_type}}</td>
 
-      <td><a [routerLink]="['/approvalconfirm/',details.Reference_ID]" class="btn btn-primary btn-sm float-right">Approve</a></td> 
+      <td><a [routerLink]="['/edituserdata/',details.Reference_ID]" class="btn btn-primary btn-sm float-right">Edit</a></td> 
        <!-- <td><a [routerLink]="['/edit/', dept.Id]" class="btn btn-primary btn-sm float-right" >Edit</a></td> 
        <td><a [routerLink]="['/delete/',dept.Id]" class="btn btn-danger btn-sm float-right" >Delete</a></td>  -->
       </tr>

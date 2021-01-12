@@ -37,7 +37,7 @@ export class AdminloginComponent implements OnInit {
     if(this.sessionval!=null)
     {
       alert("Already Logged In");
-      this.router.navigate(['/adminlogout']);
+      this.router.navigate(['/approval']);
     }
   }
   

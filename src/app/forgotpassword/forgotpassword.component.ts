@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IForgotuser } from '../models/IForgotuserid';
+import { IUser } from '../models/IUser';
 import { Iusersaccount } from '../models/Iusersaccount';
 import { UsersaccountService } from '../services/usersaccount.service';
 
@@ -12,7 +14,7 @@ export class ForgotpasswordComponent implements OnInit {
 USERID:number=null;
 OTP:number=null;
 errormessage:string="";
-data:Iusersaccount={
+data1:Iusersaccount={
   Account_Number:null,
   Customer_Id:null,
   Customername:'',
@@ -27,21 +29,36 @@ data:Iusersaccount={
   Reference_Id:null,
   Otp:null
  }
-sample:any[];
+data:IForgotuser={
+  Account_Number:null,
+  Customer_Id:null,
+  Reference_Id:null,
+  Mobile_Number:null,
+  Email_Id:null
+}
+ OtPauto:number=null;
+ lockstatus:string="";
+ isTrue:boolean=false;
+
   constructor(private registerservice:UsersaccountService,private router:Router,private route:ActivatedRoute) { }
 
   getbyCustId(id:number){
-    //console.log(id);
-    // if(this.OTP!=this.data.Otp){this.errormessage="Enter the correct otp";}if(this.OTP=this.data.Otp){this.errormessage="";this.router.navigate(['/setnewpassword/'+this.data.Account_Number])})
-
-    this.registerservice.getbyCustId(id).subscribe((data:Iusersaccount)=>
+    this.registerservice.getbyCustId(id).subscribe((data:IForgotuser)=>
     {  
       this.data=data;
-      if(this.OTP!=this.data.Otp)
-      {this.errormessage="Enter the correct otp";}
-      if(this.OTP==this.data.Otp)
-      {this.errormessage="";this.router.navigate(['/setnewpassword/'+this.data.Account_Number])}});
+      alert(this.data.Mobile_Number);
+      this.OtPauto=Math.floor(Math.random() * 899999 + 100000);
+      alert(this.OtPauto);},
+      error=>{alert(error.error.Message);});
       }
+      Pass(value:number){
+        if(this.OtPauto!=value)
+        {this.errormessage="Enter the correct otp";this.router.navigate(['/forgotpassword/']);}
+        if(this.OtPauto==value)
+        {this.errormessage="";
+        this.isTrue=true;
+        }
+    }
   userid(event){
     this.USERID=event.target.value;
     }
@@ -49,10 +66,22 @@ sample:any[];
     this.OTP=event.target.value;
     }
     resetpassword(){
-      
       this.getbyCustId(this.USERID);
     }
-
+    unlocked(id:number){
+      this.registerservice.deletelocked(id).subscribe((data:string)=>{this.lockstatus=data;alert(this.lockstatus)},
+      error=>{alert(error.error.Message);});
+    }
+    setnewpassword(id:number){
+      this.registerservice.setnewpassword(this.data1,id).subscribe(()=>{alert("Password Changed");
+      this.unlocked(id);this.router.navigate(['/login']);}
+      , error=>{alert(error.error.Message);});
+    }
+    saveRegister(data:Iusersaccount){
+      this.data1=data;
+      const id=+this.route.snapshot.paramMap.get('id')
+      this.setnewpassword(Number(this.data.Account_Number));
+    }
   ngOnInit(): void {
   }
 

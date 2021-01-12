@@ -30,5 +30,9 @@ export class LoginServiceService {
   updateattempt(id:number):Observable<any>{
     return this.http.put<any>(this.url+"PutupdateAttempt/"+id,this.httpOptions);
   }
+
+  trans(log:ILog):Observable<ILog>{
+    return this.http.post<ILog>(this.url+"PostTrans",log,this.httpOptions); 
+  }
     
 }

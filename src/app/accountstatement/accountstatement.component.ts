@@ -10,21 +10,17 @@ import { UsersaccountService } from '../services/usersaccount.service';
   styleUrls: ['./accountstatement.component.css']
 })
 export class AccountstatementComponent implements OnInit {
-  statement:Iaccountstatement={ 
-    Customer_Id:null,
-    Account_Number:null,
-    Customername:'',
-    Account_Type:'',
-    Balance:null
-   };
+  statement:Iaccountstatement[]
   sessionval:string ="";
   id:number ;
   
    constructor(private registerservice:UsersaccountService,private router:Router)  {}
  
    getstatement(id:number){
-    this.registerservice.getstatement(id).subscribe((data:Iaccountstatement)=>{this.statement=data;})
-    console.log(this.statement);
+    this.registerservice.getstatement(id).subscribe((data:Iaccountstatement[])=>{this.statement=data;}
+    ,error=>{alert(error.error.Message);}
+    )
+    
   }
    
 
@@ -36,8 +32,9 @@ export class AccountstatementComponent implements OnInit {
       alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
     }
-
+else{
     this.getstatement(this.id);
+}
   }
 
 }

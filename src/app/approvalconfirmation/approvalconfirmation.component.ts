@@ -55,7 +55,8 @@ credential:IEamil={
 refid:number=null;
   constructor(private userservice:UserdetailService,private route:ActivatedRoute,public router:Router) { }
   getUserdetail(id:number){
-    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;})
+    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;},
+    error=>{alert(error.error.Message);})
       }
 
   ngOnInit(): void {
@@ -67,15 +68,15 @@ refid:number=null;
       alert("session expired"+localStorage.getItem("adminlogouttime"));
       this.router.navigate(['/admin']);
     }
+    else{
     const id=+this.route.snapshot.paramMap.get('id');
     
     this.getUserdetail(id);
-
+    }
   }
 
 
   editDetail(){
-    console.log(this.details.Reference_ID);
     this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Approved");this.router.navigate(['/approval']);
     this.email(this.details.Reference_ID);
   });

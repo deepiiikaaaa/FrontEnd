@@ -41,11 +41,12 @@ tracking:Iuserdetail={
   Approval_Status:''
 };
 referenceid:number;
-errormessage:string="";
+
   constructor(private userservice:UserdetailService,private router:Router) { }
 
   gettrackingstatus(id:number){
-    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.tracking=data;if(this.tracking.Reference_ID!=this.referenceid){this.errormessage="Reference Id not found";this.router.navigate(['/tracking'])}{this.errormessage="";}})
+    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.tracking=data;
+      },error=>{alert(error.error.Message);})
     
       }
 

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class FundtrasferComponent implements OnInit {
   sessionval:string ="";
+  sessionval2:string ="";
   id:number ;
   constructor(private router:Router) { }
 
@@ -18,6 +19,12 @@ export class FundtrasferComponent implements OnInit {
     {
       alert("session expired"+localStorage.getItem("logouttime"));
       this.router.navigate(['/login']);
+    }
+    this.sessionval2=localStorage.getItem("transid");
+    if(this.sessionval2==null)
+    {
+      alert("transaction expired");
+      this.router.navigate(['/transverify']);
     }
 
   }
