@@ -34,7 +34,8 @@ data:IForgotuser={
   Customer_Id:null,
   Reference_Id:null,
   Mobile_Number:null,
-  Email_Id:null
+  Email_Id:null,
+  Otp:null
 }
  OtPauto:number=null;
  lockstatus:string="";
@@ -44,20 +45,20 @@ data:IForgotuser={
 
   getbyCustId(id:number){
     this.registerservice.getbyCustId(id).subscribe((data:IForgotuser)=>
-    {  
-      this.data=data;
-      alert(this.data.Mobile_Number);
-      this.OtPauto=Math.floor(Math.random() * 899999 + 100000);
-      alert(this.OtPauto);},
+    {this.data=data;
+      },
       error=>{alert(error.error.Message);});
       }
       Pass(value:number){
-        if(this.OtPauto!=value)
+        if(this.data.Otp!=value)
         {this.errormessage="Enter the correct otp";this.router.navigate(['/forgotpassword/']);}
-        if(this.OtPauto==value)
+        if(this.data.Otp==value)
         {this.errormessage="";
-        this.isTrue=true;
+         this.isTrue=true;
         }
+    }
+    generateotp(custid:number){
+      this.registerservice.putotp_pass(custid).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyCustId(this.USERID);},error=>{alert(error.error.Message);});   
     }
   userid(event){
     this.USERID=event.target.value;
@@ -66,7 +67,8 @@ data:IForgotuser={
     this.OTP=event.target.value;
     }
     resetpassword(){
-      this.getbyCustId(this.USERID);
+      this.generateotp(this.USERID);
+      
     }
     unlocked(id:number){
       this.registerservice.deletelocked(id).subscribe((data:string)=>{this.lockstatus=data;alert(this.lockstatus)},

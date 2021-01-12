@@ -47,4 +47,11 @@ export class UsersaccountService {
   getstatement(id:number):Observable<Iaccountstatement[]>{
   return this.http.get<Iaccountstatement[]>(this.url+"/Getstatement/"+id);
   }
+
+  putotp_id(accno:bigint):Observable<any>{
+    return this.http.put<any>(this.url+"/PutOtp/"+accno,this.httpOptions);
+  }
+  putotp_pass(cust:number):Observable<any>{
+    return this.http.put<any>(this.url+"/PutOtppass/"+cust,this.httpOptions);
+  }
 }

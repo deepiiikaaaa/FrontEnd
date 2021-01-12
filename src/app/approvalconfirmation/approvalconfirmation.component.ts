@@ -43,21 +43,39 @@ details:Iuserdetail={
   Account_type:'',
   Approval_Status:''
 };
-credential:IEamil={
-  Reference_Id: null,
-  Account_Number : null,
-  Customer_Id : null,
+// credential:IEamil={
+//   Reference_Id: null,
+//   Account_Number : null,
+//   Customer_Id : null,
 
-  Login_Password : "",
-}
+//   Login_Password : "",
+// }
 
 
-refid:number=null;
+// refid:number=null;
   constructor(private userservice:UserdetailService,private route:ActivatedRoute,public router:Router) { }
   getUserdetail(id:number){
     this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;},
     error=>{alert(error.error.Message);})
       }
+
+
+
+
+  editDetail(){
+    this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Approved");this.router.navigate(['/approval']);
+    // this.email(this.details.Reference_ID);
+  });
+  }
+// email(id:number){
+//   this.userservice.getcredential(id).subscribe((data:IEamil)=>{this.credential=data;alert(this.credential.Account_Number+":"+this.credential.Customer_Id+":"+this.credential.Login_Password);});
+// }
+
+
+  update(){
+    this.details.Approval_Status="yes";
+    this.editDetail();
+  }
 
   ngOnInit(): void {
 
@@ -73,22 +91,6 @@ refid:number=null;
     
     this.getUserdetail(id);
     }
-  }
-
-
-  editDetail(){
-    this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Approved");this.router.navigate(['/approval']);
-    this.email(this.details.Reference_ID);
-  });
-  }
-email(id:number){
-  this.userservice.getcredential(id).subscribe((data:IEamil)=>{this.credential=data;alert(this.credential.Account_Number+":"+this.credential.Customer_Id+":"+this.credential.Login_Password);});
-}
-
-
-  update(){
-    this.details.Approval_Status="yes";
-    this.editDetail();
   }
 
 }

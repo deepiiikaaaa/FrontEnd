@@ -33,7 +33,8 @@ errormessage:string="";
     Customer_Id:null,
     Reference_Id:null,
     Mobile_Number:null,
-    Email_Id:null
+    Email_Id:null,
+    Otp:null
   }
 
 OtPauto:number=null;
@@ -45,20 +46,20 @@ OtPauto:number=null;
     //console.log(id);
     this.registerservice.getbyAccountnumber(id).subscribe((data:IForgotuser)=>
     {this.data=data;
-      alert(this.data.Mobile_Number);
-      this.OtPauto=Math.floor(Math.random() * 899999 + 100000);
-      alert(this.OtPauto);
       },
       error=>{alert(error.error.Message);});
     }
-
-CustId(value:number){
-  if(this.OtPauto!=value)
-  {this.errormessage="Enter the correct otp";this.router.navigate(['/forgotuserid/']);}
-  if(this.OtPauto==value)
-  {this.errormessage="";alert("your user id is"+this.data.Customer_Id);this.router.navigate(['/login/']);
-}
-}
+      generateotp(accno:bigint){
+        this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyAccountnumber(this.AccountNumber);},error=>{alert(error.error.Message);});   
+      }
+      CustId(value:number){
+        
+        if(this.data.Otp!=value)
+        {this.errormessage="Enter the correct otp";this.router.navigate(['/forgotuserid/']);}
+        if(this.data.Otp==value)
+        {this.errormessage="";alert("your user id is"+this.data.Customer_Id);this.router.navigate(['/login/']);
+      }
+      }
       accountnum(event){
         this.AccountNumber=event.target.value;
         }
@@ -67,7 +68,8 @@ CustId(value:number){
 
         }
         custid(){
-          this.getbyAccountnumber(this.AccountNumber);
+          this.generateotp(this.AccountNumber);
+          
         }
 
 

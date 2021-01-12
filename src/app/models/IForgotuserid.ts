@@ -7,4 +7,5 @@ export interface IForgotuser {
     Reference_Id:number;
     Mobile_Number:bigint;
     Email_Id:string;
+    Otp:number;
 }

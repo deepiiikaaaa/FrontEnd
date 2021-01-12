@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
   Customer_Id:null,
   Reference_Id:null,
   Mobile_Number:null,
-  Email_Id:null
+  Email_Id:null,
+  Otp:null
 }
 isTruee:boolean=false;
 yesno:string="no";
@@ -42,12 +43,7 @@ OtPauto:number=null;
 
   constructor(private registerservice:UsersaccountService,private detailservice:UserdetailService,private router:Router,private route:ActivatedRoute) { }
 
-  verified()
-  {
-    this.OtPauto=Math.floor(Math.random() * 899999 + 100000);
-    alert(this.OtPauto);
-    alert(this.checkotp.Mobile_Number);
-  }
+
   getbyAccountnumber(id:bigint){
     this.registerservice.getbyAccountnumber(id).subscribe((data:IForgotuser)=>
     {
@@ -66,18 +62,18 @@ OtPauto:number=null;
   }
   
   checknet(){
-    if(this.yesno=="YES"){
-        this.isTruee=true;
-        this.verified();
-    }
-    else if(this.yesno=="NO"){
+    // if(this.yesno=="YES"){
+    //     this.isTruee=true;
+        
+    // }
+    if(this.yesno=="NO"){
       alert(this.checkotp.Customer_Id + " has not scubscribed for internet banking please subscribe to use the Netbanking facility");
       this.router.navigate(['/home']);
     }
   }
 
   RegisterDetail(value:number){
-    if(this.OtPauto==value){
+    if(this.checkotp.Otp==value){
     this.registerservice.registerdetail(this.data).subscribe(
       ()=>{alert("Registered for Net Banking");
       this.router.navigate(['/login']);
@@ -88,11 +84,14 @@ OtPauto:number=null;
       alert("OTP Doesnt Match-Enter correct OTP");
     }
   }
-  
+  generateotp(accno:bigint){
+    this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyAccountnumber(this.data.Account_Number);},error=>{alert(error.error.Message);});   
+  }
 
   saveRegister(data:Iusersaccount){
     this.data=data;
-    this.getbyAccountnumber(this.data.Account_Number);
+    this.generateotp(this.data.Account_Number);
+    
   }
   ngOnInit(): void {
   }
