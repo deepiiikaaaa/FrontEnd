@@ -1,7 +1,9 @@
 <div class="jumbtron">
+        <h4> <a [routerLink] = "['/home']"  class="btn-success" style="float: right;">Home</a>&nbsp;&nbsp;</h4>
         <h1 class="display-4 text-center">Tracking Status</h1>
-        <h4>Enter your Reference Id</h4>
 </div>
+<div class="container">
+        <div class="jumbotron">
 <div class="text-center" style="font-weight: bolder;">
         <label>Reference ID*</label>&nbsp;
         <input type="text" (input)="refid($event)" required><br/><br/>
@@ -9,10 +11,15 @@
         
 </div>
 <p>Note:Kindly Check the Appoval and Reject Staus</p>
-<p>Approve : Yes -->You Can Login and Using the Credentials send to Your</p>
-<p>Reject  : Yes -->You Should Again Request for New Account</p>
+<p>Approve : Yes -->You Can Login and Using the Credentials send to Your Mail</p>
+<p>Reject  : Rejected -->You Should Again Request for New Account</p>
 <hr/>
-<div style="font-weight: bolder;">Your Current Status :<span style="color: green;">{{tracking.Approval_Status}} </span></div>
+<div style="font-weight: bolder;">Your Approval Status :<span style="color: green;">{{tracking.Approval_Status}} </span></div>
 <hr/>
-<div style="font-weight: bolder;">Your Current Status :<span style="color: green;">{{tracking.Reject_Status}} </span></div>
+<div style="font-weight: bolder;">Your Reject Status :<span style="color: green;">{{tracking.Reject_Status}} </span></div>
 <hr/>
+</div>
+</div>
+
+
+

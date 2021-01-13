@@ -1,15 +1,18 @@
 <div class='container'>
-    <H4 class='btn-danger'>Account Holders </H4>
-    <a [routerLink] = "['/approval']">Pending Approval</a>
-    <a [routerLink] = "['/adminlogout']" style="float:right">logout</a>
+    
+  <h4>  <a [routerLink] = "['/approval']" class="btn-success">Pending Approval</a>
+    <a [routerLink] = "['/adminlogout']" style="float:right" class="btn-success">logout</a></h4>
 <!-- <p>
   <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3" >New Department</a>
 </p> -->
+<h1 class="display-4 text-center">Account Holder details</h1>
+<div class="container">
+<div class="jumbotron">
 <table class="table table-sm table-hover">
+
   <tr class='btn-success'>
       <th>Title</th>
       <th>First_Name</th>
-      <th>Middle_Name</th>
       <th>Last_Name</th>
       <th>Mobile_Number</th>
       <th>Email ID</th>
@@ -21,7 +24,6 @@
       <tr *ngFor="let details of alldata">
       <td>{{ details.Title}}</td>
       <td>{{details.First_Name}}</td>
-      <td>{{details.Middle_Name}}</td>
       <td>{{details.Last_Name}}</td>
       <td>{{details.Mobile_Number}}</td>
       <td>{{details.Email_Id}}</td>
@@ -36,4 +38,6 @@
       </tr>
       </table>
     
+</div>
+</div>
 </div>

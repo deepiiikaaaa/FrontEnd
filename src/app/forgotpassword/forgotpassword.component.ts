@@ -55,7 +55,7 @@ data:IForgotuser={
         }
     }
     generateotp(custid:number){
-      this.registerservice.putotp_pass(custid).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyCustId(this.USERID);},error=>{alert(error.error.Message);});   
+      this.registerservice.putotp_pass(custid).subscribe(()=>{alert("check your mail for otp");this.getbyCustId(this.USERID);},error=>{alert(error.error.Message);});   
     }
   userid(event){
     this.USERID=event.target.value;

@@ -48,7 +48,7 @@
                   <li>
                     <a [routerLink] = "['/changepassword']">
                       <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
-                      <span class ="title">Forgot User password </span></a></li><br/>
+                      <span class ="title">Change Password</span></a></li><br/>
         
                       <li>
                         <a [routerLink] = "['/Transactionstatement']">
@@ -86,9 +86,11 @@
     <br>
     
     <div class="col-sm-9">
-        <div class='container'>
-            <h4>Please enter the Credentials</h4>
+      <h1 class="display-4 text-center">NEFT TRANSACTION</h1>
+        
+      <div class="container">
             
+            <div class="jumbotron">
             <form #deptForm='ngForm' (ngSubmit)='savebeni(trans)'>
                <table>
                <tr>
@@ -162,12 +164,13 @@
                     </table> 
                 <hr/>
                 <div>
-                    <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
-                    <button type="reset">Reset</button>
+                    <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary">Submit</button>&nbsp;
+                    <button type="reset" class="btn btn-primary">Reset</button>
                 </div>
         
             </form>
         </div>
+      </div>
     
       
     </div>

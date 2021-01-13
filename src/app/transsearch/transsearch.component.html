@@ -49,7 +49,7 @@
                   <li>
                     <a [routerLink] = "['/changepassword']">
                       <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
-                      <span class ="title">Forgot User password </span></a></li><br/>
+                      <span class ="title">Change Password</span></a></li><br/>
         
                       <li>
                         <a [routerLink] = "['/Transactionstatement']">
@@ -91,10 +91,8 @@
         
 
       <div class='container'>
-        <H4 class='btn-danger'>Transaction List</H4>
-        Acc no : {{ user.Account_Number }}
-        Name : {{user.Customername | uppercase}}
-        Cust ID : {{ user.Customer_Id}}
+        <h1 class="display-4 text-center">Transaction Search</h1>
+       
       <div class='jumbotron'>
         <div class='container'>
             <h4>Please enter the Credentials</h4>
@@ -107,10 +105,11 @@
         
                 <hr/>
                 <div>
-                    <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+                    <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary" >Submit</button>
                 </div>
             </form>
         </div>
+        <br/>
       
         
         <div *ngIf='isTruee'>

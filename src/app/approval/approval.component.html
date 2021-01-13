@@ -1,11 +1,13 @@
+
 <div class='container'>
-  <h6 class="btn-success"><a [routerLink] = "['/adminuserlist']">EditHolderAccount</a>
-    <a [routerLink] = "['/adminlogout']" style="float:right">logout</a></h6>
-    <H4>User waiting for Approval</H4>
+  <h4><a [routerLink] = "['/adminuserlist']" class="btn-success">EditHolderAccount</a>
+    <a [routerLink] = "['/adminlogout']" style="float:right" class="btn-success">logout</a></h4>
     
-<!-- <p>
-  <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3" >New Department</a>
-</p> -->
+  
+<h1 class="display-4 text-center">Pending Approval</h1>
+<div class="container">
+  <div class="jumbotron">
+    
 <table class="table table-sm table-hover">
   <tr class='btn-success'>
       <th>Title</th>
@@ -31,4 +33,6 @@
       </tr>
       </table>
     
+  </div>
+</div>
 </div>

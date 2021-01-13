@@ -49,7 +49,7 @@
                   <li>
                     <a [routerLink] = "['/changepassword']">
                       <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
-                      <span class ="title">Forgot User password </span></a></li><br/>
+                      <span class ="title">Change Password</span></a></li><br/>
         
                       <li>
                         <a [routerLink] = "['/Transactionstatement']">
@@ -91,16 +91,19 @@
 
 
       <div>
-        <h4> Welcome to the transaction</h4><br><br>
+        <h1 class="display-4 text-center">Welcome to the Transaction Management</h1>
     </div>
     
-    <div class="container" *ngIf="isTrue; else loggedOut">
-      <h6>use the following Facility available</h6>
-        <a [routerLink] = "['/transverify']">New Transaction</a> ||
-        <a [routerLink] = "['/Transactionsummary']">Transaction Summary</a> ||
-        <a [routerLink] = "['/Transactionstatement']">Transaction Statement</a>
+    <div *ngIf="isTrue; else loggedOut">
+    <div class="container">
+    <div class="jumbotorn">
+      <h4>Use the Following Facility Available</h4>
+     <h4>   <a [routerLink] = "['/transverify']"  class="btn-success">New Transaction</a> &nbsp; &nbsp;
+        <a [routerLink] = "['/Transactionsummary']"  class="btn-success">Transaction Summary</a> &nbsp; &nbsp;
+        <a [routerLink] = "['/Transactionstatement']"  class="btn-success">Transaction Statement</a></h4>
       </div>
-    
+    </div>
+    </div>
       <ng-template #loggedOut>
         <h2> Please Subscribe to use the service </h2> 
       </ng-template>

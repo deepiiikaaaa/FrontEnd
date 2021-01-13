@@ -49,7 +49,7 @@
                   <li>
                     <a [routerLink] = "['/changepassword']">
                       <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
-                      <span class ="title">Forgot User password </span></a></li><br/>
+                      <span class ="title">Change Password</span></a></li><br/>
         
                       <li>
                         <a [routerLink] = "['/Transactionstatement']">
@@ -90,26 +90,27 @@
             
         
         <div class='container'>
-         
-            <h4>Please enter the Credentials</h4>
+          <h1 class="display-4 text-center">Transaction Statement</h1>
             <form #deptForm='ngForm' (ngSubmit)='save()'>
                 
                 <div>
-                    <label for="start">start:</label>
+                    <label style="font-weight: bolder;" for="start">START DATE:</label>
                     <input type='date' class='form-control' id='start' name='start' [(ngModel)]='start' />
                 </div>
                 <div>
-                    <label for="finish">finish:</label>
+                    <label style="font-weight: bolder;" for="finish">END DATE:</label>
                     <input type='date' class='form-control' id='finish' name='finish'[(ngModel)]='finish' />
                 </div>
-        
-                <hr/>
-                <div>
-                    <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+                <br/>
+    
+                <div class="text-center">
+                    <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary" >Submit</button>
                 </div>
         
             </form>
+            
         </div>
+        <br/>
         
             <div class="container" *ngIf='isTrue'>
               <div class='jumbotron'>

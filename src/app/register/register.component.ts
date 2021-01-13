@@ -82,7 +82,7 @@ OtPauto:number=null;
     }
   }
   generateotp(accno:bigint){
-    this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyAccountnumber(this.data.Account_Number);},error=>{alert(error.error.Message);});   
+    this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your Mail for otp");this.getbyAccountnumber(this.data.Account_Number);},error=>{alert(error.error.Message);});   
   }
 
   saveRegister(data:Iusersaccount){

@@ -49,7 +49,7 @@
                   <li>
                     <a [routerLink] = "['/changepassword']">
                       <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
-                      <span class ="title">Forgot User password </span></a></li><br/>
+                      <span class ="title">Change Password </span></a></li><br/>
         
                       <li>
                         <a [routerLink] = "['/Transactionstatement']">
@@ -88,25 +88,30 @@
     
     <div class="col-sm-9">
     
-        <div class='jambotron'>
+      
             
         <div>
-          <h3> Welcome to the Benificiary management</h3><br><br>
+          <h1 class="display-4 text-center">Welcome to the Benificiary management</h1>
+          
         </div>
 
         <div *ngIf="isTrue; else loggedOut">
-        <h6>use the following Facility available</h6>
-          <a [routerLink] = "['/beni']" >Benificiary List</a> ||
-          <a [routerLink] = "['/beniadd']" >Add new Benificiary</a>
+          <div class="container">
+            <div class="jumbotron">
+        <h4>Use the Following Facility Available</h4>
+        
+         <h4> <a [routerLink] = "['/beni']"  class="btn-success">Benificiary List</a>&nbsp;&nbsp; 
+          <a [routerLink] = "['/beniadd']" class="btn-success" >Add new Benificiary</a></h4>
         </div>
-
+        </div>
+        </div>
         <ng-template #loggedOut>
           <h2> Please Subscribe to use the service </h2> 
         </ng-template>
                 </div>
 
       
-    </div>
+  
   </div>
 </div>
 <div class="toggle" onclick="toggleMenu()"></div>

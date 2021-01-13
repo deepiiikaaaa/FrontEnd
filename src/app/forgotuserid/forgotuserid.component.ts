@@ -50,7 +50,7 @@ OtPauto:number=null;
       error=>{alert(error.error.Message);});
     }
       generateotp(accno:bigint){
-        this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyAccountnumber(this.AccountNumber);},error=>{alert(error.error.Message);});   
+        this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your Mail for otp");this.getbyAccountnumber(this.AccountNumber);},error=>{alert(error.error.Message);});   
       }
       generateuserid(accno:bigint){
         this.registerservice.putuser_id(accno).subscribe(()=>{alert("Check your Mail for UserId");this.router.navigate(['/login/']);},error=>{alert(error.error.Message);});   
