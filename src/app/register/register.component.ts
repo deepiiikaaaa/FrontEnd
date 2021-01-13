@@ -21,9 +21,6 @@ export class RegisterComponent implements OnInit {
   Transaction_Password:'',
   Confirm_Transaction_Password:'',
   Balance:null,
-  Register_Internet_Banking:'',
-  Login_Status:'',
-  Logout_Time:null,
   Reference_Id:null,
   Otp:null
  }

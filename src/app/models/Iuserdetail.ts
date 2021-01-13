@@ -1,3 +1,5 @@
+import { StringMap } from "@angular/compiler/src/compiler_facade_interface";
+
 export interface Iuserdetail {
     Reference_ID :number;
     Title :string;
@@ -8,7 +10,7 @@ export interface Iuserdetail {
     Mobile_Number:number;
     Email_Id :string ;
     Aadhar_Number:number;
-    Date_of_Birth :Date;
+    Date_of_Birth :string;
     Address_Line1 :string ;
     Address_Line2 :string;
     Lankmark:string;
@@ -28,5 +30,6 @@ export interface Iuserdetail {
     Net_banking:string;
     Account_type:string;
     Approval_Status:string;
+    Reject_Status:String;
     
 }

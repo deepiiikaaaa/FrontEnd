@@ -1,17 +1,21 @@
+<body>
 <div class="jumbtron">
     <h1 class="display-4 text-center">Open A Savings Account</h1>
-    <h3>Personal Details</h3>
+    <h3 class="text-center">Personal Details</h3>
 </div>
+<div class="container">
 <form #form="ngForm" (ngSubmit)='saveDetails(details)' autocomplete="off">
     <div class="form-group">
-        <label>Title*</label>
-        <select name="Title" #Title="ngModel" [(ngModel)]="details.Title" class="form-control" required>
+        <label for="Title" class="col-sm-2 col-form-label">Title*</label>
+        
+        <select name="Title" #Title="ngModel" [(ngModel)]="details.Title" class="form-control"  required>
             <option *ngFor="let data of title">{{data}}</option>
         </select>  
+    
         <div class="validation-error" style="color:red" *ngIf="Title.invalid && (Title.dirty || Title.touched)">This field is required</div>
     </div>
     <div class="form-group">
-        <label>First Name*</label>
+        <label class="col-sm-2 col-form-label">First Name*</label>
         <input type="text" name="First_Name" #First_Name="ngModel" [(ngModel)]="details.First_Name" class="form-control" placeholder="Enter FirstName" required pattern="([a-zA-Z]{3,20})">
           <div *ngIf="First_Name.invalid && (First_Name.dirty || First_Name.touched)"
             class="alert alert-danger">
@@ -24,8 +28,8 @@
           </div>
     </div>
     <div class="form-group">
-        <label>Middle Name</label>
-        <input type="text" name="Middle_Name" #Middle_Name ="ngModel" [(ngModel)]="details.Middle_Name" class="form-control" placeholder="Enter MiddleName" pattern="([a-zA-Z]{1,20})">
+        <label class="col-sm-2 col-form-label">Middle Name</label>
+        <input type="text" name="Middle_Name" #Middle_Name ="ngModel" [(ngModel)]="details.Middle_Name" class="form-control"  placeholder="Enter MiddleName" pattern="([a-zA-Z]{1,20})">
         <div *ngIf="Middle_Name.invalid && (Middle_Name.dirty || Middle_Name.touched)"
         class="alert alert-danger">
             <div *ngIf="Middle_Name.errors.pattern">
@@ -34,7 +38,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Last Name*</label>
+        <label class="col-sm-2 col-form-label">Last Name*</label>
         <input type="text" name="Last_Name" #Last_Name="ngModel" [(ngModel)]="details.Last_Name" class="form-control" placeholder="Enter LastName" required pattern="([a-zA-Z]{1,20})">
         <div *ngIf="Last_Name.invalid && (Last_Name.dirty || Last_Name.touched)"
         class="alert alert-danger">
@@ -47,7 +51,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Father Name*</label>
+        <label class="col-sm-2 col-form-label">Father Name*</label>
         <input type="text" name="Father_Name" #Father_Name="ngModel" [(ngModel)]="details.Father_Name" class="form-control" placeholder="Enter FatherName" required pattern="([a-zA-Z'']{3,20})">
         <div *ngIf="Father_Name.invalid && (Father_Name.dirty || Father_Name.touched)"
         class="alert alert-danger">
@@ -60,7 +64,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Mobile Number*</label>
+        <label class="col-sm-2 col-form-label">Mobile Number*</label>
         <input type="text" name="Mobile_Number" #Mobile_Number="ngModel" [(ngModel)]="details.Mobile_Number" class="form-control" placeholder="Enter MobileNumber" required pattern="([+]\d{2})?[6789]\d{9}">
         <div *ngIf="Mobile_Number.invalid && (Mobile_Number.dirty || Mobile_Number.touched)"
         class="alert alert-danger">
@@ -73,7 +77,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Email Id *</label>
+        <label class="col-sm-2 col-form-label">Email Id *</label>
         <input type="text" name="Email_Id" #Email_Id ="ngModel" [(ngModel)]="details.Email_Id " class="form-control" placeholder="somthing@someserver.com" required pattern="([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})">
         <div *ngIf="Email_Id.invalid && (Email_Id.dirty || Email_Id.touched)"
         class="alert alert-danger">
@@ -86,7 +90,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Aadhar Number*</label>
+        <label class="col-sm-2 col-form-label">Aadhar Number*</label>
         <input type="text" name="Aadhar_Number" #Aadhar_Number="ngModel" [(ngModel)]="details.Aadhar_Number" class="form-control"  placeholder="Enter Aadhar Number" required pattern="\d{12}">
         <div *ngIf="Aadhar_Number.invalid && (Aadhar_Number.dirty || Aadhar_Number.touched)"
         class="alert alert-danger">
@@ -99,7 +103,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Date of Birth*</label>
+        <label class="col-sm-2 col-form-label">Date of Birth*</label>
         <input type="date" name="Date_of_Birth" #Date_of_Birth="ngModel" [(ngModel)]="details.Date_of_Birth" class="form-control" required>
         <div *ngIf="Date_of_Birth.invalid && (Date_of_Birth.dirty || Date_of_Birth.touched)"
         class="alert alert-danger">
@@ -109,7 +113,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Address Line1 *</label>
+        <label class="col-sm-2 col-form-label">Address Line1 *</label>
         <input type="text" name="Address_Line1" #Address_Line1 ="ngModel"  [(ngModel)]="details.Address_Line1 " class="form-control" placeholder="Enter first line" required maxlength="20">
         <div *ngIf="Address_Line1.invalid && (Address_Line1.dirty || Address_Line1.touched)"
         class="alert alert-danger">
@@ -123,7 +127,7 @@
     </div>
 
     <div class="form-group">
-        <label>Address Line2 *</label>
+        <label class="col-sm-2 col-form-label">Address Line2 *</label>
         <input type="text" name="Address_Line2" #Address_Line2="ngModel" [(ngModel)]="details.Address_Line2" class="form-control" placeholder="Enter second line" required maxlength="20">
         <div *ngIf="Address_Line2.invalid && (Address_Line2.dirty || Address_Line2.touched)"
         class="alert alert-danger">
@@ -136,7 +140,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Lankmark</label>
+        <label class="col-sm-2 col-form-label">Lankmark</label>
         <input type="text" name="Lankmark" #Lankmark="ngModel" [(ngModel)]="details.Lankmark" placeholder="Enter Lankmark" pattern="[A-Za-z]{1,15}"  class="form-control">
         <div *ngIf="Lankmark.invalid && (Lankmark.dirty || Lankmark.touched)"
         class="alert alert-danger">
@@ -146,7 +150,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>State*</label>
+        <label class="col-sm-2 col-form-label">State*</label>
         <input type="text" name="State" #State="ngModel" [(ngModel)]="details.State" placeholder="Enter State" required pattern="[A-Za-z]{1,15}" class="form-control">
         <div *ngIf="State.invalid && (State.dirty || State.touched)"
         class="alert alert-danger">
@@ -159,7 +163,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>City*</label>
+        <label class="col-sm-2 col-form-label">City*</label>
         <input type="text" name="City" #City="ngModel" [(ngModel)]="details.City" placeholder="Enter City" required  pattern="[A-Za-z]{1,15}" class="form-control">
         <div *ngIf="City.invalid && (City.dirty || City.touched)"
         class="alert alert-danger">
@@ -172,7 +176,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Pincode*</label>
+        <label class="col-sm-2 col-form-label">Pincode*</label>
         <input type="number" name="Pincode" #Pincode="ngModel" [(ngModel)]="details.Pincode" placeholder="Enter Pincode" required pattern="\d{6}" class="form-control">
         <div *ngIf="Pincode.invalid && (Pincode.dirty || Pincode.touched)"
         class="alert alert-danger">
@@ -186,12 +190,12 @@
     </div>
     <div class="form-group">
         <label>Permanent Address</label><br/>
-        <input type="checkbox" name="isChecked"  value="" class="" [(ngModel)]="isChecked" (change)="checkValue(form)" >
+        <input type="checkbox" name="isChecked"  value=""  [(ngModel)]="isChecked" (change)="checkValue(form)" >
         <label>Permanent Address same as Mailing Address</label>
     </div>
     <div class="form-group">
-        <label>Address Line1 *</label>
-        <input type="text" name="PermanentAddress_Line1"  #PermanentAddress_Line1 ="ngModel"  [(ngModel)]="details.PermanentAddress_Line1"  class="form-control" placeholder="Enter first line" required maxlength="20">
+        <label class="col-sm-2 col-form-label">Address Line1 *</label>
+        <input type="text" name="PermanentAddress_Line1"  #PermanentAddress_Line1 ="ngModel"  [(ngModel)]="details.PermanentAddress_Line1" class="form-control" placeholder="Enter first line" required maxlength="20">
         <div *ngIf="PermanentAddress_Line1.invalid && (PermanentAddress_Line1.dirty || PermanentAddress_Line1.touched)"
         class="alert alert-danger">
             <div *ngIf="PermanentAddress_Line1.errors.required">
@@ -204,7 +208,7 @@
     </div>
 
     <div class="form-group">
-        <label>Address Line2 *</label>
+        <label class="col-sm-2 col-form-label">Address Line2 *</label>
         <input type="text" name="PermanentAddress_Line2" #PermanentAddress_Line2="ngModel" [(ngModel)]="details.PermanentAddress_Line2" class="form-control" placeholder="Enter second line" required maxlength="20">
         <div *ngIf="PermanentAddress_Line2.invalid && (PermanentAddress_Line2.dirty || PermanentAddress_Line2.touched)"
         class="alert alert-danger">
@@ -217,7 +221,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Lankmark</label>
+        <label class="col-sm-2 col-form-label">Lankmark</label>
         <input type="text" name="PermanentLankmark" #PermanentLankmark="ngModel" [(ngModel)]="details.PermanentLankmark" class="form-control" placeholder="Enter Lankmark" pattern="[A-Za-z]{1,15}">
         <div *ngIf="PermanentLankmark.invalid && (PermanentLankmark.dirty || PermanentLankmark.touched)"
         class="alert alert-danger">
@@ -230,7 +234,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>State*</label>
+        <label class="col-sm-2 col-form-label"> State*</label>
         <input type="text" name="PermanentState" #PermanentState="ngModel" [(ngModel)]="details.PermanentState" class="form-control" placeholder="Enter State" required pattern="[A-Za-z]{1,15}">
         <div *ngIf="PermanentState.invalid && (PermanentState.dirty || PermanentState.touched)"
         class="alert alert-danger">
@@ -243,7 +247,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>City*</label>
+        <label class="col-sm-2 col-form-label">City*</label>
         <input type="text" name="PermanentCity" #PermanentCity="ngModel" [(ngModel)]="details.PermanentCity" class="form-control" placeholder="Enter #City" required pattern="[A-Za-z]{1,15}">
         <div *ngIf="PermanentCity.invalid && (PermanentCity.dirty || PermanentCity.touched)"
         class="alert alert-danger">
@@ -256,7 +260,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Pincode*</label>
+        <label class="col-sm-2 col-form-label">Pincode*</label>
         <input type="number" name="PermanentPincode" #PermanentPincode="ngModel" [(ngModel)]="details.PermanentPincode" class="form-control" placeholder="Enter Pincode" required pattern="\d{6}">
         <div *ngIf="PermanentPincode.invalid && (PermanentPincode.dirty || PermanentPincode.touched)"
         class="alert alert-danger">
@@ -270,7 +274,7 @@
     </div>
 
     <div class="form-group">
-        <label>Occupation type*</label>
+        <label class="col-sm-2 col-form-label">Occupation type*</label>
         <input type="text" name="Occupation_type" #Occupation_type="ngModel" [(ngModel)]="details.Occupation_type" class="form-control" placeholder="Enter Occupation Type" required pattern="[A-Za-z]{1,}">
         <div *ngIf="Occupation_type.invalid && (Occupation_type.dirty || Occupation_type.touched)"
         class="alert alert-danger">
@@ -283,7 +287,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Source of Income*</label>
+        <label class="col-sm-2 col-form-label">Source of Income*</label>
         <input type="text" name="Source_of_Income" #Source_of_Income="ngModel" [(ngModel)]="details.Source_of_Income" class="form-control" placeholder="Enter Source of Income" required pattern="[A-Za-z]{1,}">
         <div *ngIf="Source_of_Income.invalid && (Source_of_Income.dirty || Source_of_Income.touched)"
         class="alert alert-danger">
@@ -296,7 +300,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label>Gross Annual Income*</label>
+        <label class="col-sm-2 col-form-label">Gross Annual Income*</label>
         <input type="number" name="Gross_Annual_Income" #Gross_Annual_Income="ngModel" [(ngModel)]="details.Gross_Annual_Income" placeholder="Enter Gross Amount" class="form-control" required>
     </div>
     <div *ngIf="Gross_Annual_Income.invalid && (Gross_Annual_Income.dirty || Gross_Annual_Income.touched)"
@@ -307,8 +311,8 @@
   </div>
 
     <div class="form-group">
-        <label>Do you want a debit card?*</label>
-        <select name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card" required>
+        <label class="col-sm-2 col-form-label">Do you want a debit card?*</label>
+        <select name="Debit_Card" #Debit_Card="ngModel" [(ngModel)]="details.Debit_Card" class="form-contol" required>
             <option *ngFor="let data3 of debitcard">{{data3}}</option>
         </select>
         <div *ngIf="Debit_Card.invalid && (Debit_Card.dirty || Debit_Card.touched)"
@@ -319,8 +323,8 @@
         </div>
     </div>
     <div class="form-controlName">
-        <label>Netbanking*</label>
-        <select name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" class="form-control" required>
+        <label class="col-sm-2 col-form-label">Netbanking*</label>
+        <select name="Net_banking" #Net_banking="ngModel" [(ngModel)]="details.Net_banking" class="form-contol" required>
             <option *ngFor="let data1 of netbanking">{{data1}}</option>
         </select>
         <div *ngIf="Net_banking.invalid && (Net_banking.dirty || Net_banking.touched)"
@@ -331,8 +335,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label>Account type*</label>
-        <select name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" class="form-control" required>
+        <label class="col-sm-2 col-form-label">Account type*</label>
+        <select name="Account_type" #Account_type="ngModel" [(ngModel)]="details.Account_type" class="form-contol" required>
             <option *ngFor="let data2 of accounttype">{{data2}}</option>
         </select>
         <div *ngIf="Account_type.invalid && (Account_type.dirty || Account_type.touched)"
@@ -350,4 +354,6 @@
         <button type="submit" [disabled]="form.invalid"  class="btn btn-primary">Submit</button>
     </div> 
 </form>
+</div>
+</body>
 

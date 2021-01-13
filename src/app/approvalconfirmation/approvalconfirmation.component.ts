@@ -1,6 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IEamil } from '../models/IEmail';
+
 
 import { Iuserdetail } from '../models/Iuserdetail';
 import { UserdetailService } from '../services/userdetail.service';
@@ -41,7 +42,8 @@ details:Iuserdetail={
   Debit_Card:'',
   Net_banking:'',
   Account_type:'',
-  Approval_Status:''
+  Approval_Status:'',
+  Reject_Status:''
 };
 // credential:IEamil={
 //   Reference_Id: null,
@@ -53,9 +55,9 @@ details:Iuserdetail={
 
 
 // refid:number=null;
-  constructor(private userservice:UserdetailService,private route:ActivatedRoute,public router:Router) { }
+  constructor(private userservice:UserdetailService,private datePipe:DatePipe,private router:Router,private route:ActivatedRoute) { }
   getUserdetail(id:number){
-    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;},
+    this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;this.details.Date_of_Birth = this.datePipe.transform(Date.now(),'yyyy-MM-dd');},
     error=>{alert(error.error.Message);})
       }
 
@@ -67,6 +69,11 @@ details:Iuserdetail={
     // this.email(this.details.Reference_ID);
   });
   }
+  editRDetail(){
+    this.userservice.editUserdetail(this.details).subscribe(()=>{alert("Rejected");this.router.navigate(['/approval']);
+    // this.email(this.details.Reference_ID);
+  });
+  }
 // email(id:number){
 //   this.userservice.getcredential(id).subscribe((data:IEamil)=>{this.credential=data;alert(this.credential.Account_Number+":"+this.credential.Customer_Id+":"+this.credential.Login_Password);});
 // }
@@ -75,6 +82,10 @@ details:Iuserdetail={
   update(){
     this.details.Approval_Status="yes";
     this.editDetail();
+  }
+  Reject(){
+    this.details.Reject_Status="Rejected";
+    this.editRDetail();
   }
 
   ngOnInit(): void {

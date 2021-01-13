@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Iuserdetail } from '../models/Iuserdetail';
 import { UserdetailService } from '../services/userdetail.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-userdetail-edit',
@@ -43,10 +44,11 @@ export class UserdetailEditComponent implements OnInit {
     Debit_Card:'',
     Net_banking:'',
     Account_type:'',
-    Approval_Status:''
+    Approval_Status:'',
+    Reject_Status:''
   };
   
-  constructor(private userservice:UserdetailService,private router:Router,private route:ActivatedRoute) { }
+  constructor(private userservice:UserdetailService,private router:Router,private route:ActivatedRoute,private datePipe: DatePipe) { }
 
   checkValue(details :Iuserdetail){
     if(this.isChecked)
@@ -69,7 +71,7 @@ export class UserdetailEditComponent implements OnInit {
 }
 
 getUserdetail(id:number){
-  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;},
+  this.userservice.getUserdetail(id).subscribe((data:Iuserdetail)=>{this.details=data;this.details.Date_of_Birth = this.datePipe.transform(Date.now(),'yyyy-MM-dd');},
   error=>{alert(error.error.Message);});  
     }
 

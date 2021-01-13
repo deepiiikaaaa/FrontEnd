@@ -36,6 +36,9 @@ import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
 import { TransverifyComponent } from './transverify/transverify.component';
 import { AdminuserlistComponent } from './adminuserlist/adminuserlist.component';
 import { EdituserdataComponent } from './edituserdata/edituserdata.component';
+import { DatePipe } from '@angular/common';
+import { HelpComponent } from './help/help.component';
+import { TranssearchComponent } from './transsearch/transsearch.component';
 
 
 @NgModule({
@@ -71,13 +74,15 @@ import { EdituserdataComponent } from './edituserdata/edituserdata.component';
     TransverifyComponent,
     AdminuserlistComponent,
     EdituserdataComponent,
+    HelpComponent,
+    TranssearchComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

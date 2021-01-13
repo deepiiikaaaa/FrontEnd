@@ -54,4 +54,7 @@ export class UsersaccountService {
   putotp_pass(cust:number):Observable<any>{
     return this.http.put<any>(this.url+"/PutOtppass/"+cust,this.httpOptions);
   }
+  putuser_id(accno:bigint):Observable<any>{
+    return this.http.put<any>(this.url+"/Putuserid/"+accno,this.httpOptions);
+  }
 }

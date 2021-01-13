@@ -27,9 +27,6 @@ export class ImpsComponent implements OnInit {
       Login_Password : null,
       Transaction_Password : null,
       Balance : null,
-      Register_Internet_Banking : null,
-      Login_Status : null,
-      Logout_Time : null,
       Reference_Id: null,
       Otp: null,
   

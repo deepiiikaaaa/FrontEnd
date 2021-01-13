@@ -1,13 +1,131 @@
-<table class="table table-sm table-hover">
-    <tr class='btn-success'>
-        <th>Account Number</th>
-        <th>Name</th>
-        <th>Account Type</th>
-        <th>Balance</th>
-      </tr>
-        <tr *ngFor="let x of statement">
-          <td>{{ x.Account_Number }}</td>
-          <td>{{ x.Customername}}</td>
-          <td>{{ x.Account_type }}</td>
-          <td>{{ x.Balance }}</td>
-        </table>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity=
+  "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    
+  
+</head>
+<body>
+<div class="navigation">
+  <h4 type="none" class="btn-success" style="font-weight: bolder;"> 
+    <a [routerLink] = "['/logout']" style="float:right">
+      <span class = "icon"><i class="fa fa-power-off" aria-hidden="true"></i> </span>  &nbsp;
+      <span class ="title" >Logout </span></a><br/></h4>
+</div>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav hidden-xs">
+      <h2>DashBoard</h2>
+      <ul class="nav nav-pills nav-stacked">
+        
+          <li>
+            <a [routerLink] = "['/dashboard']">
+              <span class = "icon"> <i class="fa fa-bars" aria-hidden="true"></i> </span>  &nbsp;
+              <span class ="title">Dashboard </span></a></li><br/>
+
+
+          <li>
+            <a [routerLink] = "['/Transactionsummary']">
+              <span class = "icon"> <i class="fa fa-file-text" aria-hidden="true"></i> </span>  &nbsp;
+              <span class ="title">Account Summary </span></a></li><br/>
+
+              <li>
+                <a [routerLink] = "['/transverify']">
+                  <span class = "icon"> <i class="fa fa-exchange" aria-hidden="true"></i> </span> &nbsp;
+                  <span class ="title"> Fundtransfer </span></a></li><br/>
+          
+                  <li>
+                    <a [routerLink] = "['/changepassword']">
+                      <span class = "icon"> <i class="fa fa-unlock" aria-hidden="true"></i>  </span>  &nbsp;
+                      <span class ="title">Forgot User password </span></a></li><br/>
+        
+                      <li>
+                        <a [routerLink] = "['/Transactionstatement']">
+                          <span class = "icon"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>  </span>  &nbsp;
+                          <span class ="title">Transaction Statement</span></a></li><br/>
+                          
+                          <li>
+                            <a [routerLink] = "['/Accountstatement']">
+                              <span class = "icon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  </span>  &nbsp;
+                              <span class ="title">Accountstatement</span></a></li><br/>
+                          <li>
+                            <a [routerLink] = "['/transsearch']">
+                              <span class = "icon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  </span>  &nbsp;
+                              <span class ="title">Search for Transactions</span></a></li><br/>
+                          <li>
+                            <a [routerLink] = "['/benidash']">
+                              <span class = "icon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  </span>  &nbsp;
+                              <span class ="title">Benificiary Dashboard</span></a></li><br/>
+                          <li>
+                            <a [routerLink] = "['/transdash']">
+                              <span class = "icon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  </span>  &nbsp;
+                              <span class ="title">Transaction Dashboard</span></a></li><br/>
+				
+
+                              <li>
+                                <a [routerLink] = "['/help']">
+                                  <span class = "icon"><i class="fa fa-question-circle" aria-hidden="true"></i>  </span>  &nbsp;
+                                  <span class ="title">Help</span></a></li><br/>
+
+        <em></em>
+       
+        
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+            
+        
+
+      <div class='container'>
+
+
+
+        <table class="table table-sm table-hover">
+          <tr class='btn-success'>
+              <th>Account Number</th>
+              <th>Name</th>
+              <th>Account Type</th>
+              <th>Balance</th>
+            </tr>
+              <tr *ngFor="let x of statement">
+                <td>{{ x.Account_Number }}</td>
+                <td>{{ x.Customername}}</td>
+                <td>{{ x.Account_type }}</td>
+                <td>{{ x.Balance }}</td>
+              </table>
+      </div>
+
+      
+      
+    </div>
+  </div>
+</div>
+<div class="toggle" onclick="toggleMenu()"></div>
+<script type="text/javascript">
+function toggleMenu(){
+  let navigation = document.querySelector('.navigation');
+  let toggle = document.querySelector('.toggle')
+  navigation.classList.toggle('active');
+  toggle.classList.toggle('active');
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

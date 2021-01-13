@@ -38,7 +38,8 @@ tracking:Iuserdetail={
   Debit_Card:'',
   Net_banking:'',
   Account_type:'',
-  Approval_Status:''
+  Approval_Status:'',
+  Reject_Status:''
 };
 referenceid:number;
 

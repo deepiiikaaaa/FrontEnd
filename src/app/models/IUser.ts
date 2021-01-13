@@ -5,9 +5,6 @@ export interface IUser{
     Login_Password : string,
     Transaction_Password : string,
     Balance : any,
-    Register_Internet_Banking : string,
-    Login_Status : string,
-    Logout_Time : Date,
     Reference_Id: number,
     Otp: number
 }

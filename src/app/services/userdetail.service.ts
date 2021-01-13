@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
 import{Observable,of} from 'rxjs';
 import { Iuserdetail } from '../models/Iuserdetail';
-import { IEamil } from '../models/IEmail';
+
 
 
 @Injectable({
@@ -38,9 +38,9 @@ export class UserdetailService {
     return this.http.get<Iuserdetail>(this.url+"/Getrefid");
   }
 
-  getcredential(id:number):Observable<IEamil>{
-    return this.http.get<IEamil>(this.url+"/Getcredentials/"+id,this.httpOptions);
-  }
+  // getcredential(id:number):Observable<IEamil>{
+  //   return this.http.get<IEamil>(this.url+"/Getcredentials/"+id,this.httpOptions);
+  // }
   // // getRefid(id:number):Observable<Iuserdetail>{
   // //   return this.http.get<Iuserdetail>(this.url+"/GetRefernceid/"+id);
   // // }

@@ -30,6 +30,8 @@ import { AdminlogoutComponent } from './adminlogout/adminlogout.component';
 import { TransverifyComponent } from './transverify/transverify.component';
 import { AdminuserlistComponent } from './adminuserlist/adminuserlist.component';
 import { EdituserdataComponent } from './edituserdata/edituserdata.component';
+import { HelpComponent } from './help/help.component';
+import { TranssearchComponent } from './transsearch/transsearch.component';
 
 const routes: Routes = [
   {path:"openaccount",component:UserdetailComponent},
@@ -62,6 +64,8 @@ const routes: Routes = [
   {path:'transverify',component:TransverifyComponent},
   {path:'adminuserlist',component:AdminuserlistComponent},
   {path:'edituserdata/:id',component:EdituserdataComponent},
+  {path:'help',component:HelpComponent},
+  {path:'transsearch',component:TranssearchComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

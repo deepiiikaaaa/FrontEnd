@@ -1,24 +1,25 @@
-<div class='container'>
-    <h4>Please enter the Credentials</h4>
-    <form #deptForm='ngForm' (ngSubmit)='saveLogin(model)'>
+<div class='main'>
+    <h4 class="Display-4 text-center">Please enter the Credentials</h4>
+    <form #deptForm='ngForm' class="form1" (ngSubmit)='saveLogin(model)'>
         <div>
-            <label for="CustomerID">Enter LoginID:</label>
-            <input type='text' class='form-control' id='CustomerID' name='CustomerID' required
+            
+            <input type='text' class='un' style="text-align: center" id='CustomerID' name='CustomerID' placeholder="Enter User Id" required
              [(ngModel)]='model.CustomerID' />
         </div>
 
         <div>
-            <label for="Password">Enter Password:</label>
-            <input type='password' class='form-control' id='Password' name='Password' required
+            
+            <input type='password' class='pass' id='Password' name='Password' placeholder="Enter Password" required
              [(ngModel)]='model.Password' />
         </div>
-        <hr/>
+        
         <div>
-            <button type='submit' [disabled]='deptForm.invalid' class="btn btn-primary">Login</button>
+            <button type='submit' [disabled]='deptForm.invalid' class="submit">Login</button>
         </div>
 
     </form>
-    <div>
+    <br/>
+    <div class="text-center">
         <a [routerLink] = "['/forgotuserid']" >Forgot UserId?</a><br/>
         <a [routerLink] = "['/forgotpassword']">Forgot Password?</a><br/>
     </div>

@@ -52,12 +52,15 @@ OtPauto:number=null;
       generateotp(accno:bigint){
         this.registerservice.putotp_id(accno).subscribe(()=>{alert("check your mail/mobile for otp");this.getbyAccountnumber(this.AccountNumber);},error=>{alert(error.error.Message);});   
       }
+      generateuserid(accno:bigint){
+        this.registerservice.putuser_id(accno).subscribe(()=>{alert("Check your Mail for UserId");this.router.navigate(['/login/']);},error=>{alert(error.error.Message);});   
+      }
       CustId(value:number){
         
         if(this.data.Otp!=value)
         {this.errormessage="Enter the correct otp";this.router.navigate(['/forgotuserid/']);}
         if(this.data.Otp==value)
-        {this.errormessage="";alert("your user id is"+this.data.Customer_Id);this.router.navigate(['/login/']);
+        {this.errormessage="";this.generateuserid(this.AccountNumber);
       }
       }
       accountnum(event){

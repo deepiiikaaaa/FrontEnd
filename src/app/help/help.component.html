@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +14,11 @@
 </head>
 <body>
 <div class="navigation">
-  <h4 type="none" class="btn-success" style="font-weight: bolder;"> Acc no : {{ user.Account_Number }}
-    Name : {{user.Customername | uppercase}} <span style="float: right;" type="none">
-
-      <a [routerLink] = "['/logout']">
+ <h4 type="none" class="btn-success" style="font-weight: bolder;"> 
+    <a [routerLink] = "['/logout']" style="float:right">
         <span class = "icon"><i class="fa fa-power-off" aria-hidden="true"></i> </span>  &nbsp;
-        <span class ="title">Logout </span></a></span><br/></h4>
+        <span class ="title" >Logout </span></a><br/></h4>
+  
 </div>
 <div class="container-fluid">
   <div class="row content">
@@ -32,9 +30,6 @@
             <a [routerLink] = "['/dashboard']">
               <span class = "icon"> <i class="fa fa-bars" aria-hidden="true"></i> </span>  &nbsp;
               <span class ="title">Dashboard </span></a></li><br/>
-          <li><a [routerLink] = "['/useredit/',user.Reference_Id]">
-          <span class = "icon"><i class="fa fa-info-circle" aria-hidden="true"></i> </span>  &nbsp;
-          <span class ="title"> AcountDetails </span></a></li> <br/>
 
           <li>
             <a [routerLink] = "['/Transactionsummary']">
@@ -87,46 +82,10 @@
     <br>
     
     <div class="col-sm-9">
+      
+      
 
-
-
-        <h1> Transfer Successful!</h1>
-        <div>
-            <label for="ref">Reference Id</label>
-            <input type='text' class='form-control' id='ref' name='ref' 
-             value="{{trans.Transaction_Id}}" />
-        </div>
-        <div>
-            <label for="mod">Mode</label>
-            <input type='text' class='form-control' id='mod' name='mod' 
-             value="{{trans.Mode}}" />
-        </div>
-        <div>
-            <label for="payto">Paid To Account</label>
-            <input type='text' class='form-control' id='payto' name='payto' 
-             value="{{trans.To_Account_Number}}" />
-        </div>
-        <div>
-            <label for="amt">Amount</label>
-            <input type='text' class='form-control' id='amt' name='amt' 
-             value="{{trans.Amount}}" />
-        </div>
-        <div>
-            <label for="payfr">From Account</label>
-            <input type='text' class='form-control' id='payfr' name='payfr' 
-             value="{{trans.From_Account_Number}}" />
-        </div>
-        <div>
-            <label for="on">On</label>
-            <input type='text' class='form-control' id='on' name='on' 
-             value="{{trans.Transaction_Date | date}}" />
-        </div>
-        <div>
-            <label for="rem">Remarks</label>
-            <input type='text' class='form-control' id='rem' name='rem' 
-             value="{{trans.Remark}}" />
-        </div>
-        <a [routerLink] = "['/dashboard']">Return to Dashboard</a>            
+<p>works</p>
 
       
     </div>
@@ -143,8 +102,6 @@ function toggleMenu(){
 </script>
 </body>
 </html>
-
-
 
 
 

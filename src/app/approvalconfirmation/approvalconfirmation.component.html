@@ -17,7 +17,15 @@
            Debit_Card          : {{details.Debit_Card}}<br/>
            Net_banking         : {{details.Net_banking}}<br/>
            Account_type        : {{details.Account_type}}<br/>
-           <input type="submit" value="Approve" (click)="update()"/>
+           <table>
+               <tr>
+                   <td><input type="submit" value="Approve" (click)="update()"/></td>
+                   <td></td>
+                   <td><input type="submit" value="Reject" (click)="Reject()"/></td>
+               </tr>
+           </table>
+           
+           
         </div>
     </div>
 </div>

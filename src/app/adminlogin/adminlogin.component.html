@@ -1,16 +1,15 @@
-<div class="container">
-    <h4>Admin Credentials:</h4>
-    <form #adminForm='ngForm' (ngSubmit)='saveAdmin(admindeets)'>
-        <div class="form-group">
-            <label for='Admin_Id'>Admin Id:</label>
-            <input type="text" class="form-control" id='Admin_Id' name="Admin_Id" [(ngModel)]='admindeets.Admin_Id' />
-        </div>
-        <div class="form-group">
-            <label for='Password'>Admin Password:</label>
-            <input type="password" class="form-control" id='Password' name="Password" [(ngModel)]='admindeets.Password' />
+<div class="main">
+    <h4 class="display-4 text-center">Admin Credentials</h4>
+    <form #adminForm='ngForm' class="form1" (ngSubmit)='saveAdmin(admindeets)'>
+        <div>
+            
+            <input type="text" class="un" id='Admin_Id' name="Admin_Id" placeholder="Enter User Name" [(ngModel)]='admindeets.Admin_Id' />
         </div>
         <div>
-            <button type="submit" [disabled]='adminForm.invalid'>Save</button>
+            <input type="password" class="pass" id='Password' placeholder="Enter Password" name="Password" [(ngModel)]='admindeets.Password' />
+        </div>
+        <div>
+            <button type="submit" [disabled]='adminForm.invalid' class="submit">Save</button>
         </div>
     </form>
     </div>

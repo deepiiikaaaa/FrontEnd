@@ -1,47 +1,63 @@
-<style>
-    div {
-      text-align: center;
-      border: 2px solid black;
-      padding: 10px;
-      margin-left: auto;
-      margin-right: auto;
-     }
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity=
+    "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+<body> 
+  
+  <!-- <div style="text-align: center; border:none;"> -->
+    <div style="background-color: white;">
     
-  
-  td, th {
-    border: 2px solid #dddddd;
-    text-align: right;
+    <span class="display-5 text-center" style="font-weight: bolder;">Welcome to LTI Bank</span>
+    </div>
     
-    padding: 8px;
-  }
-    </style>
-  
-  <div>Home</div>
-  
-  <table style="border:2px solid black;margin-left:auto">
+  <table style="border:3px solid black;margin-left:auto ;background-color: rgb(225, 232, 236);">
     <tr>
       <th>Login Internet Banking</th>
     </tr>
     <tr>
-      <th><a [routerLink] = "['/login']" >Login</a></th>
+      <th style="border: 3px solid black"><a [routerLink] = "['/login']">
+        <span class = "icon"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span>  &nbsp;
+        <span class ="title">Login </span></a></th>
+      
     </tr>
     <tr>
-      <th><a [routerLink] = "['/register']" >NewUser?Register</a></th>
+      <th style="border: 3px solid black"><a [routerLink] = "['/admin']">
+        <span class = "icon"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span>  &nbsp;
+        <span class ="title">Admin Login </span></a></th>
+      
     </tr>
     <tr>
-      <th><a [routerLink] = "['/openaccount']">Apply Online For Account</a></th>
+      <th style="border: 3px solid black"><a [routerLink] = "['/register']">
+        <span class = "icon"><i class="fa fa-plus-circle" aria-hidden="true"></i> </span>  &nbsp;
+        <span class ="title">Newuser?Register </span></a></th>
     </tr>
     <tr>
-      <th><a [routerLink] = "['/admin']">Admin Login</a></th>
+      <th style="border: 3px solid black"><a [routerLink] = "['/openaccount']">
+        <span class = "icon"> <i class="fa fa-address-card" aria-hidden="true"></i> </span>  &nbsp;
+        <span class ="title">Open a New Account</span></a></th>
     </tr>
+    <tr>
+      <th style="border: 3px solid black"><a [routerLink] = "['/help']">
+        <span class = "icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>  &nbsp;
+        <span class ="title">Help</span></a></th>
+    </tr>
+   
   </table>
+ 
+ 
 
-  <table style="border:1px solid black;margin-left:auto;margin-right: auto;  width: 30%;height: 15px;padding : 10px">
-    <tr height = 150px>
-      <th>"welCome"</th>
+
+  <table style="border:3px solid black;margin-left:auto;margin-right: auto;  width: 30%;height: 15px;
+  padding : 10px;background-color: rgb(225, 232, 236);">
+    <tr style="border: 3px solid black; height : 150px ">
+      <th style="text-align:center" >WELCOME TO LTI BANK</th>
     </tr>
     <tr height = 150px>
-      <th>"Go And Create a Account"</th>
+      <th style="text-align:center">Create A New Account</th>
     </tr>
     
   </table>
+</body>
+  

@@ -48,7 +48,8 @@ export class UserdetailComponent implements OnInit {
     Debit_Card:'',
     Net_banking:'',
     Account_type:'',
-    Approval_Status:''
+    Approval_Status:'',
+    Reject_Status:''
   };
   x:string;
   constructor(private userservice:UserdetailService,private router:Router,private route:ActivatedRoute) { }

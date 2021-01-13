@@ -87,47 +87,68 @@
     <br>
     
     <div class="col-sm-9">
+            
+        
 
+      <div class='container'>
+        <H4 class='btn-danger'>Transaction List</H4>
+        Acc no : {{ user.Account_Number }}
+        Name : {{user.Customername | uppercase}}
+        Cust ID : {{ user.Customer_Id}}
+      <div class='jumbotron'>
+        <div class='container'>
+            <h4>Please enter the Credentials</h4>
+            <form #deptForm='ngForm' (ngSubmit)='save()'>
+                
+                <div>
+                    <label for="start">Search by To AccountNumber:</label>
+                    <input type='text' class='form-control' id='start' name='start' [(ngModel)]='start' />
+                </div>
+        
+                <hr/>
+                <div>
+                    <button type='submit' [disabled]='deptForm.invalid' >Submit</button>
+                </div>
+            </form>
+        </div>
+      
+        
+        <div *ngIf='isTruee'>
+      <table class="table table-sm table-hover">
+      <tr class='btn-success'>
+          <th>Transaction Id</th>
+          <th>From Account Number</th>
+          <th>To Account Number</th>
+          <th> Benificiary Name</th>
+          <th>Amount</th>
+          <th>Mode</th>
+          <th>Remark</th>
+          <th>Transaction Date</th>
+          <th>Closing Balance</th>
+        </tr>
+          <tr *ngFor="let dept of transli; let i = index">
+            <div *ngIf='back()'></div>
+            <td *ngIf='dept.To_Account_Number == start'>{{ dept.Transaction_Id }}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{ dept.From_Account_Number }}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{ dept.To_Account_Number }}</td>
+            <ng-container *ngFor="let beni of benili">
+            <ng-container *ngIf='check(beni.Beneficiary_Account_Number,dept.To_Account_Number)'>
+            <td *ngIf='dept.To_Account_Number == start'> {{beni.Beneficiary_Name}}</td>
+            </ng-container>
+          </ng-container>
+            <td *ngIf='dept.To_Account_Number == start'>{{ dept.Amount }}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{dept.Mode}}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{dept.Remark}}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{ dept.Transaction_Date | date}}</td>
+            <td *ngIf='dept.To_Account_Number == start'>{{dept.balance}}</td>
+            
+          </tr>
+          </table>
+          </div>
+        </div>
+      </div>
 
-
-        <h1> Transfer Successful!</h1>
-        <div>
-            <label for="ref">Reference Id</label>
-            <input type='text' class='form-control' id='ref' name='ref' 
-             value="{{trans.Transaction_Id}}" />
-        </div>
-        <div>
-            <label for="mod">Mode</label>
-            <input type='text' class='form-control' id='mod' name='mod' 
-             value="{{trans.Mode}}" />
-        </div>
-        <div>
-            <label for="payto">Paid To Account</label>
-            <input type='text' class='form-control' id='payto' name='payto' 
-             value="{{trans.To_Account_Number}}" />
-        </div>
-        <div>
-            <label for="amt">Amount</label>
-            <input type='text' class='form-control' id='amt' name='amt' 
-             value="{{trans.Amount}}" />
-        </div>
-        <div>
-            <label for="payfr">From Account</label>
-            <input type='text' class='form-control' id='payfr' name='payfr' 
-             value="{{trans.From_Account_Number}}" />
-        </div>
-        <div>
-            <label for="on">On</label>
-            <input type='text' class='form-control' id='on' name='on' 
-             value="{{trans.Transaction_Date | date}}" />
-        </div>
-        <div>
-            <label for="rem">Remarks</label>
-            <input type='text' class='form-control' id='rem' name='rem' 
-             value="{{trans.Remark}}" />
-        </div>
-        <a [routerLink] = "['/dashboard']">Return to Dashboard</a>            
-
+      
       
     </div>
   </div>
@@ -143,6 +164,9 @@ function toggleMenu(){
 </script>
 </body>
 </html>
+
+
+
 
 
 
